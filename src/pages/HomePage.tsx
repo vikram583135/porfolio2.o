@@ -23,17 +23,6 @@ const HomePage = () => {
                     {/* Left Content */}
                     <div className="space-y-8 animate-fadeIn">
                         <div className="space-y-4">
-                            {/* Google Partner Badge */}
-                            <div className="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-goog border border-outline shadow-goog-1">
-                                <div className="google-dots">
-                                    <span></span>
-                                    <span></span>
-                                    <span></span>
-                                    <span></span>
-                                </div>
-                                <span className="text-sm font-medium text-text-secondary">Partner Developer</span>
-                            </div>
-
                             <h1 className="text-5xl md:text-6xl font-bold leading-tight">
                                 <span className="text-text-primary">Hi, I'm</span>
                                 <br />

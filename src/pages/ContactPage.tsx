@@ -1,5 +1,5 @@
 import { getContact } from '../data/portfolioData';
-import { FiMail, FiPhone, FiMapPin, FiGithub, FiLinkedin, FiSend } from 'react-icons/fi';
+import { FiMail, FiMapPin, FiGithub, FiLinkedin, FiSend } from 'react-icons/fi';
 import { useState, FormEvent } from 'react';
 import SectionHeader from '../components/SectionHeader';
 
@@ -29,8 +29,7 @@ const ContactPage = () => {
 
     const contactMethods = [
         { icon: FiMail, label: 'Email', value: contact.email, href: `mailto:${contact.email}`, color: 'blue' },
-        { icon: FiPhone, label: 'Phone', value: contact.phone, href: `tel:${contact.phone}`, color: 'green' },
-        { icon: FiMapPin, label: 'Location', value: contact.location, href: null, color: 'yellow' }
+        { icon: FiMapPin, label: 'Location', value: contact.location, href: null, color: 'green' }
     ];
 
     const socialLinks = [

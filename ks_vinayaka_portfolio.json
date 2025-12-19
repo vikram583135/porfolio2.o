@@ -1,0 +1,168 @@
+{
+  "personal": {
+    "name": "K S VINAYAKA",
+    "title": "Full-Stack + Cloud Engineer",
+    "location": "Bengaluru, India",
+    "email": "vikram583135@gmail.com",
+    "phone": "+91 9606578966",
+    "github": "https://github.com/vikram583135",
+    "linkedin": "https://www.linkedin.com/in/k-s-vinayaka-8793a7225/"
+  },
+  "summary": "Full-Stack + Cloud Engineer with proven success developing real-time platforms, distributed workloads, modular monorepo systems, and scalable backend architectures. Strong engineering mindset with AWS certification and hands-on project experience.",
+  "skills": [
+    "Python",
+    "Java",
+    "C#",
+    "TypeScript",
+    "JavaScript",
+    "C++",
+    "SQL",
+    "Django",
+    "NestJS",
+    "Node.js",
+    ".NET",
+    "React",
+    "Next.js",
+    "React Native",
+    "HTML5",
+    "CSS3",
+    "AWS (EC2, S3, IAM, CloudWatch)",
+    "Redis",
+    "Celery",
+    "Docker",
+    "CI/CD",
+    "PostgreSQL",
+    "MySQL",
+    "WebSockets",
+    "System Design",
+    "Caching",
+    "Async Workers"
+  ],
+  "education": [
+    {
+      "degree": "MCA",
+      "year": "2024-2025",
+      "institution": "Bangalore University"
+    },
+    {
+      "degree": "BCA",
+      "year": "2021-2024",
+      "institution": "VSK University"
+    },
+    {
+      "degree": "PUC (Computer Science)",
+      "year": "2018-2020",
+      "institution": "KSOU"
+    }
+  ],
+  "certifications": [
+    "AWS Cloud Practitioner (CLF-C02)",
+    "Python for Beginners — Simplilearn",
+    "Introduction to AI — SkillUp"
+  ],
+  "projects": [
+    {
+      "title": "PlatePal — Real-Time Food Delivery Platform",
+      "description": "Real-time courier tracking using WebSockets; ML-powered ETA engine; Celery pipelines for background processing; spatial query optimizations.",
+      "tech_stack": [
+        "Django",
+        "React",
+        "Redis",
+        "Celery",
+        "PostgreSQL",
+        "WebSockets"
+      ],
+      "source": "resume (uploaded PDF)"
+    },
+    {
+      "title": "AttendWise — Distributed Attendance System",
+      "description": "Scalable REST APIs with TypeORM; JWT + RBAC security; shared logic via TypeScript monorepo.",
+      "tech_stack": [
+        "NestJS",
+        "Next.js",
+        "React Native",
+        "PostgreSQL",
+        "Redis"
+      ],
+      "source": "resume (uploaded PDF)"
+    },
+    {
+      "title": "Placement Management System",
+      "description": "Multi-role recruitment platform (Django) supporting large datasets, automated analytics and bulk processing.",
+      "tech_stack": [
+        "Django 5",
+        "PostgreSQL"
+      ],
+      "github": "https://github.com/vikram583135/placement_system",
+      "source": "resume + GitHub",
+      "github_ref": "https://github.com/vikram583135/placement_system"
+    },
+    {
+      "title": "LEGAL-ADVISOR-SEARCH-ENGINE",
+      "description": "Filter-based advisor search implemented in ASP.NET (.NET) with SQL backend.",
+      "tech_stack": [
+        "C#",
+        ".NET",
+        "SQL"
+      ],
+      "github": "https://github.com/vikram583135/LEGAL-ADVISOR-SEARCH-ENGINE",
+      "source": "GitHub"
+    },
+    {
+      "title": "portfolio (personal site)",
+      "description": "Personal portfolio site (HTML/CSS) with pages for education, projects, and skills.",
+      "tech_stack": [
+        "HTML",
+        "CSS"
+      ],
+      "github": "https://github.com/vikram583135/portfolio",
+      "source": "GitHub"
+    },
+    {
+      "title": "amazon_clone",
+      "description": "Frontend clone/demo (HTML) showcasing ecommerce UI layout.",
+      "tech_stack": [
+        "HTML"
+      ],
+      "github": "https://github.com/vikram583135/amazon_clone",
+      "source": "GitHub"
+    },
+    {
+      "title": "grocery_billing",
+      "description": "Web-based grocery billing demo project (JavaScript).",
+      "tech_stack": [
+        "JavaScript",
+        "HTML"
+      ],
+      "github": "https://github.com/vikram583135/grocery_billing",
+      "source": "GitHub"
+    },
+    {
+      "title": "hostel_mgmt",
+      "description": "Hostel management frontend (HTML).",
+      "tech_stack": [
+        "HTML",
+        "CSS",
+        "JavaScript"
+      ],
+      "github": "https://github.com/vikram583135/hostel_mgmt",
+      "source": "GitHub"
+    }
+  ],
+  "blog_posts": [],
+  "contact": {
+    "email": "vikram583135@gmail.com",
+    "phone": "+91 9606578966",
+    "location": "Bengaluru, India",
+    "github": "https://github.com/vikram583135",
+    "linkedin": "https://www.linkedin.com/in/k-s-vinayaka-8793a7225/"
+  },
+  "notes": {
+    "data_sources": {
+      "resume_pdf": "/mnt/data/Ks_vinayaka_cv_ (1).pdf",
+      "github_user": "https://github.com/vikram583135",
+      "linkedin_profile": "https://www.linkedin.com/in/k-s-vinayaka-8793a7225/ (fetch failed)"
+    },
+    "next_steps": "Provide LinkedIn post text or post URLs to include blog entries. I can also expand any project entry into detailed case-studies, screenshots, and demo links."
+  }
+}

@@ -9,12 +9,12 @@ const AboutPage = () => {
     const certifications = getCertifications();
 
     const skillCategories = {
-        'Languages': { skills: ['Python', 'Java', 'C#', 'TypeScript', 'JavaScript', 'C++', 'SQL'], color: 'blue', icon: '🔵' },
-        'Frameworks': { skills: ['Django', 'NestJS', 'Node.js', '.NET', 'React', 'Next.js', 'React Native'], color: 'green', icon: '🟢' },
-        'Frontend': { skills: ['HTML5', 'CSS3'], color: 'yellow', icon: '🟡' },
-        'Cloud & DevOps': { skills: ['AWS (EC2, S3, IAM, CloudWatch)', 'Docker', 'CI/CD'], color: 'red', icon: '🔴' },
-        'Databases & Tools': { skills: ['PostgreSQL', 'MySQL', 'Redis', 'Celery', 'WebSockets'], color: 'blue', icon: '🔵' },
-        'Concepts': { skills: ['System Design', 'Caching', 'Async Workers'], color: 'green', icon: '🟢' },
+        'Languages': { skills: ['Python', 'Java', 'C#', 'TypeScript', 'JavaScript', 'C++', 'SQL'], color: 'blue' },
+        'Frameworks': { skills: ['Django', 'NestJS', 'Node.js', '.NET', 'React', 'Next.js', 'React Native'], color: 'green' },
+        'Frontend': { skills: ['HTML5', 'CSS3'], color: 'yellow' },
+        'Cloud & DevOps': { skills: ['AWS (EC2, S3, IAM, CloudWatch)', 'Docker', 'CI/CD'], color: 'red' },
+        'Databases & Tools': { skills: ['PostgreSQL', 'MySQL', 'Redis', 'Celery', 'WebSockets'], color: 'blue' },
+        'Concepts': { skills: ['System Design', 'Caching', 'Async Workers'], color: 'green' },
     };
 
     const getCardClass = (color: string) => {
@@ -37,6 +37,16 @@ const AboutPage = () => {
         return tagClasses[color] || 'tag-blue';
     };
 
+    const getIconBgClass = (color: string) => {
+        const bgClasses: Record<string, string> = {
+            blue: 'bg-g-blue',
+            green: 'bg-g-green',
+            yellow: 'bg-g-yellow',
+            red: 'bg-g-red',
+        };
+        return bgClasses[color] || 'bg-g-blue';
+    };
+
     return (
         <div className="min-h-screen py-12 px-6 md:px-12">
             <div className="max-w-6xl mx-auto space-y-16">
@@ -47,49 +57,49 @@ const AboutPage = () => {
                     subtitle="Passionate about building scalable systems and beautiful user experiences"
                 />
 
-                {/* Summary Section - Rainbow Glass */}
-                <section className="relative glass-rainbow rounded-2xl p-8">
-                    <div className="absolute -left-1 top-0 bottom-0 w-1.5 divider-rainbow rounded-full"></div>
-                    <div className="pl-6">
-                        <h2 className="text-2xl font-bold text-text-primary mb-3 flex items-center gap-3">
-                            <span className="w-10 h-10 bg-ms-blue rounded-lg flex items-center justify-center text-white">
-                                <FiCode size={20} />
-                            </span>
-                            Professional Summary
-                        </h2>
-                        <div className="w-24 h-1 mb-4 divider-blue"></div>
-                        <p className="text-text-secondary text-lg leading-relaxed max-w-4xl">
-                            {summary}
-                        </p>
+                {/* Summary Section */}
+                <section className="card-rainbow p-8 animate-fadeIn">
+                    <div className="flex items-start gap-4">
+                        <div className="w-12 h-12 bg-g-blue rounded-goog flex items-center justify-center text-white flex-shrink-0">
+                            <FiCode size={24} />
+                        </div>
+                        <div>
+                            <h2 className="text-xl font-bold text-text-primary mb-2">Professional Summary</h2>
+                            <div className="w-16 h-1 mb-4 divider-blue"></div>
+                            <p className="text-text-secondary leading-relaxed">
+                                {summary}
+                            </p>
+                        </div>
                     </div>
                 </section>
 
-                {/* Skills Section - Green Theme */}
-                <section className="space-y-8 section-green rounded-2xl p-8">
+                {/* Skills Section */}
+                <section className="space-y-8 section-green rounded-goog-xl p-8">
                     <div>
                         <h2 className="text-2xl font-bold text-text-primary flex items-center gap-3">
-                            <span className="w-10 h-10 bg-ms-green rounded-lg flex items-center justify-center text-white">
+                            <span className="w-10 h-10 bg-g-green rounded-goog flex items-center justify-center text-white">
                                 <FiCode size={20} />
                             </span>
                             Technical Skills
                         </h2>
-                        <div className="w-28 h-1.5 mt-3 bg-gradient-to-r from-ms-green to-ms-green-light rounded-full"></div>
+                        <div className="w-24 h-1 mt-3 bg-gradient-to-r from-g-green to-g-blue rounded-full"></div>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {Object.entries(skillCategories).map(([category, { skills: categorySkills, color, icon }]) => (
+                        {Object.entries(skillCategories).map(([category, { skills: categorySkills, color }]) => (
                             <div
                                 key={category}
-                                className={`p-6 ${getCardClass(color)} rounded-2xl transition-all duration-300`}
+                                className={`p-6 ${getCardClass(color)} transition-all duration-200`}
                             >
                                 <h3 className="text-lg font-bold text-text-primary mb-4 flex items-center gap-2">
-                                    <span>{icon}</span> {category}
+                                    <div className={`w-2 h-2 ${getIconBgClass(color)} rounded-full`}></div>
+                                    {category}
                                 </h3>
                                 <div className="flex flex-wrap gap-2">
                                     {categorySkills.filter(s => skills.includes(s)).map((skill) => (
                                         <span
                                             key={skill}
-                                            className={`px-3 py-1.5 ${getTagClass(color)} rounded-full text-sm font-medium`}
+                                            className={`px-3 py-1.5 ${getTagClass(color)} rounded-goog-full text-sm`}
                                         >
                                             {skill}
                                         </span>
@@ -100,37 +110,34 @@ const AboutPage = () => {
                     </div>
                 </section>
 
-                {/* Education Section - Yellow Theme */}
-                <section className="space-y-8 section-yellow rounded-2xl p-8">
+                {/* Education Section */}
+                <section className="space-y-8 section-yellow rounded-goog-xl p-8">
                     <div>
                         <h2 className="text-2xl font-bold text-text-primary flex items-center gap-3">
-                            <span className="w-10 h-10 bg-ms-yellow rounded-lg flex items-center justify-center text-white">
+                            <span className="w-10 h-10 bg-g-yellow rounded-goog flex items-center justify-center text-white">
                                 <FiBookOpen size={20} />
                             </span>
                             Education
                         </h2>
-                        <div className="w-24 h-1.5 mt-3 bg-gradient-to-r from-ms-yellow to-ms-yellow-dark rounded-full"></div>
+                        <div className="w-20 h-1 mt-3 bg-gradient-to-r from-g-yellow to-g-green rounded-full"></div>
                     </div>
 
                     <div className="space-y-6">
                         {education.map((edu, index) => (
-                            <div
-                                key={index}
-                                className="relative pl-8 pb-8 last:pb-0"
-                            >
-                                {/* Colorful Timeline Line */}
-                                <div className="absolute left-[7px] top-6 bottom-0 w-0.5 bg-gradient-to-b from-ms-yellow via-ms-green to-ms-blue"></div>
+                            <div key={index} className="relative pl-8 pb-6 last:pb-0">
+                                {/* Timeline Line */}
+                                <div className="absolute left-[7px] top-6 bottom-0 w-0.5 bg-gradient-to-b from-g-yellow via-g-green to-g-blue"></div>
 
-                                {/* Rainbow Dot */}
-                                <div className="absolute left-0 top-2 w-4 h-4 rounded-full bg-gradient-to-br from-ms-yellow to-ms-green shadow-md"></div>
+                                {/* Timeline Dot */}
+                                <div className="absolute left-0 top-2 w-4 h-4 rounded-full bg-g-yellow shadow-goog-1"></div>
 
-                                <div className="card-yellow p-6 rounded-xl">
+                                <div className="card-yellow p-6">
                                     <div className="flex flex-wrap items-start justify-between gap-2">
                                         <div>
-                                            <h3 className="text-xl font-bold text-text-primary">{edu.degree}</h3>
-                                            <p className="text-text-secondary font-medium">{edu.institution}</p>
+                                            <h3 className="text-lg font-bold text-text-primary">{edu.degree}</h3>
+                                            <p className="text-text-secondary">{edu.institution}</p>
                                         </div>
-                                        <span className="px-4 py-1.5 tag-yellow rounded-full text-sm font-semibold">
+                                        <span className="px-4 py-1.5 tag-yellow rounded-goog-full text-sm font-medium">
                                             🎓 {edu.year}
                                         </span>
                                     </div>
@@ -140,16 +147,16 @@ const AboutPage = () => {
                     </div>
                 </section>
 
-                {/* Certifications Section - Red Theme */}
-                <section className="space-y-8 section-red rounded-2xl p-8">
+                {/* Certifications Section */}
+                <section className="space-y-8 section-red rounded-goog-xl p-8">
                     <div>
                         <h2 className="text-2xl font-bold text-text-primary flex items-center gap-3">
-                            <span className="w-10 h-10 bg-ms-red rounded-lg flex items-center justify-center text-white">
+                            <span className="w-10 h-10 bg-g-red rounded-goog flex items-center justify-center text-white">
                                 <FiAward size={20} />
                             </span>
                             Certifications
                         </h2>
-                        <div className="w-28 h-1.5 mt-3 bg-gradient-to-r from-ms-red to-ms-yellow rounded-full"></div>
+                        <div className="w-24 h-1 mt-3 bg-gradient-to-r from-g-red to-g-yellow rounded-full"></div>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -159,12 +166,12 @@ const AboutPage = () => {
                             return (
                                 <div
                                     key={index}
-                                    className={`p-5 ${cardClass} rounded-xl flex items-center gap-4 transition-all duration-300`}
+                                    className={`p-5 ${cardClass} flex items-center gap-4 transition-all duration-200`}
                                 >
-                                    <div className="p-3 bg-white/50 rounded-full">
-                                        <FiAward className="text-ms-red" size={22} />
+                                    <div className="p-2 bg-surface-alt rounded-full">
+                                        <FiAward className="text-g-red" size={20} />
                                     </div>
-                                    <p className="text-text-primary font-semibold">{cert}</p>
+                                    <p className="text-text-primary font-medium">{cert}</p>
                                 </div>
                             );
                         })}

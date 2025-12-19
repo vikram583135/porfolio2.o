@@ -14,15 +14,18 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="sticky top-0 z-50 backdrop-blur-xl bg-white/80 border-b-2 border-transparent"
-      style={{ borderImage: 'linear-gradient(90deg, #0078D4, #7FBA00, #FFB900, #F25022) 1' }}>
+    <nav className="sticky top-0 z-50 bg-white border-b border-outline shadow-goog-1">
       <div className="max-w-7xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          <NavLink
-            to="/"
-            className="font-bold text-2xl uppercase tracking-wider"
-          >
-            <span className="bg-gradient-to-r from-ms-blue via-ms-green via-ms-yellow to-ms-red bg-clip-text text-transparent animate-gradient bg-[length:200%_auto]">
+          {/* Logo with Google Dots */}
+          <NavLink to="/" className="flex items-center gap-3">
+            <div className="google-dots">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <span className="font-semibold text-xl text-text-primary">
               KS Vinayaka
             </span>
           </NavLink>
@@ -34,8 +37,8 @@ const Navbar = () => {
                 key={link.name}
                 to={link.path}
                 className={({ isActive }) =>
-                  `nav-link uppercase text-sm tracking-widest font-medium transition-all duration-300
-                  ${isActive ? 'text-ms-blue active' : 'text-text-secondary hover:text-ms-blue'}`
+                  `nav-link text-sm tracking-wide transition-all duration-200
+                  ${isActive ? 'text-g-blue active' : 'text-text-secondary hover:text-g-blue'}`
                 }
               >
                 {link.name}
@@ -46,7 +49,7 @@ const Navbar = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden text-text-primary p-2 hover:bg-ms-blue/10 rounded-lg transition-colors duration-300"
+            className="md:hidden text-text-primary p-2 hover:bg-surface-hover rounded-goog transition-colors duration-200"
           >
             {isOpen ? <FiX size={24} /> : <FiMenu size={24} />}
           </button>
@@ -54,28 +57,24 @@ const Navbar = () => {
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="md:hidden mt-4 glass-rainbow rounded-xl p-4 animate-fadeIn shadow-lg">
-            <div className="flex flex-col items-center space-y-4">
-              {navLinks.map((link, index) => {
-                const colors = ['ms-blue', 'ms-green', 'ms-yellow', 'ms-red', 'ms-blue'];
-                const color = colors[index % colors.length];
-                return (
-                  <NavLink
-                    key={link.name}
-                    to={link.path}
-                    className={({ isActive }) =>
-                      `uppercase text-sm tracking-widest py-2 px-6 rounded-lg transition-all duration-300 font-medium
-                      ${isActive
-                        ? `text-${color} bg-${color}/10 border-2 border-${color}/50`
-                        : 'text-text-secondary hover:text-ms-blue hover:bg-ms-blue/5'
-                      }`
-                    }
-                    onClick={() => setIsOpen(false)}
-                  >
-                    {link.name}
-                  </NavLink>
-                );
-              })}
+          <div className="md:hidden mt-4 bg-white rounded-goog-lg border border-outline p-4 animate-fadeIn shadow-goog-2">
+            <div className="flex flex-col space-y-2">
+              {navLinks.map((link) => (
+                <NavLink
+                  key={link.name}
+                  to={link.path}
+                  className={({ isActive }) =>
+                    `text-sm py-3 px-4 rounded-goog transition-all duration-200 font-medium
+                    ${isActive
+                      ? 'text-g-blue bg-g-blue/10'
+                      : 'text-text-secondary hover:text-g-blue hover:bg-surface-hover'
+                    }`
+                  }
+                  onClick={() => setIsOpen(false)}
+                >
+                  {link.name}
+                </NavLink>
+              ))}
             </div>
           </div>
         )}

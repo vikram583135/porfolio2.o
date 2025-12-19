@@ -1,27 +1,24 @@
 interface SectionHeaderProps {
     title: string;
     subtitle?: string;
-    className?: string;
 }
 
-const SectionHeader = ({ title, subtitle, className = '' }: SectionHeaderProps) => {
+const SectionHeader = ({ title, subtitle }: SectionHeaderProps) => {
     return (
-        <header className={`text-center space-y-4 ${className}`}>
-            <h1 className="text-4xl md:text-6xl font-bold">
-                <span className="bg-gradient-to-r from-ms-blue via-ms-green via-ms-yellow to-ms-red bg-clip-text text-transparent">
-                    {title}
-                </span>
+        <div className="text-center space-y-4 animate-fadeIn">
+            <h1 className="text-4xl md:text-5xl font-bold text-text-primary">
+                {title}
             </h1>
-            {/* Microsoft Rainbow Underline */}
+            {/* Google-style rainbow underline */}
             <div className="flex justify-center">
-                <div className="w-24 h-1 bg-gradient-to-r from-ms-blue via-ms-green via-ms-yellow to-ms-red rounded-full"></div>
+                <div className="w-20 h-1 divider-google"></div>
             </div>
             {subtitle && (
-                <p className="text-text-secondary text-lg max-w-2xl mx-auto">
+                <p className="text-lg text-text-secondary max-w-2xl mx-auto leading-relaxed">
                     {subtitle}
                 </p>
             )}
-        </header>
+        </div>
     );
 };
 

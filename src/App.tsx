@@ -9,15 +9,13 @@ import ContactPage from './pages/ContactPage';
 function App() {
   return (
     <BrowserRouter>
-      <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white via-green-50 via-yellow-50 to-red-50 text-text-primary">
+      <div className="min-h-screen bg-white text-text-primary">
         <Navbar />
         <main className="relative">
-          {/* Colorful Background decorations */}
+          {/* Subtle Google-style background accents */}
           <div className="fixed inset-0 overflow-hidden pointer-events-none">
-            <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-ms-blue/10 rounded-full blur-[100px] animate-pulse-slow"></div>
-            <div className="absolute top-1/3 right-0 w-[400px] h-[400px] bg-ms-green/10 rounded-full blur-[80px] animate-pulse-slow delay-1000"></div>
-            <div className="absolute bottom-1/4 left-0 w-[350px] h-[350px] bg-ms-yellow/10 rounded-full blur-[100px] animate-pulse-slow delay-500"></div>
-            <div className="absolute bottom-0 right-1/4 w-[450px] h-[450px] bg-ms-red/8 rounded-full blur-[120px] animate-pulse-slow delay-200"></div>
+            <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-g-blue/5 rounded-full blur-[120px]"></div>
+            <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-g-green/5 rounded-full blur-[100px]"></div>
           </div>
 
           {/* Content */}
@@ -32,11 +30,13 @@ function App() {
           </div>
         </main>
 
-        {/* Colorful Footer */}
-        <footer className="relative z-10 py-8 px-6 text-center section-rainbow">
-          <p className="text-text-secondary text-sm font-medium">
-            © {new Date().getFullYear()} <span className="gradient-text font-bold">K S Vinayaka</span>. Built with React & TailwindCSS
-          </p>
+        {/* Footer */}
+        <footer className="relative z-10 py-8 px-6 bg-surface-alt border-t border-outline">
+          <div className="max-w-6xl mx-auto text-center">
+            <p className="text-text-secondary text-sm">
+              © {new Date().getFullYear()} <span className="font-semibold text-text-primary">K S Vinayaka</span> • Built with React & TailwindCSS
+            </p>
+          </div>
         </footer>
       </div>
     </BrowserRouter>

@@ -1,10 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Montserrat:wght@400;500;600&family=Roboto:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Open+Sans:wght@400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Base Styles - Microsoft Inspired */
+/* ========================================
+   GOOGLE PARTNERS DESIGN SYSTEM
+   ======================================== */
+
+/* Base Styles */
 * {
     margin: 0;
     padding: 0;
@@ -16,42 +20,46 @@ html {
 }
 
 body {
-    font-family: 'Segoe UI', 'Inter', sans-serif;
-    background: linear-gradient(135deg, #f0f6ff 0%, #ffffff 25%, #f5fff5 50%, #fffef5 75%, #fff5f5 100%);
-    color: #1B1B1B;
+    font-family: 'Roboto', 'Open Sans', sans-serif;
+    background: #FFFFFF;
+    color: #202124;
     min-height: 100vh;
     overflow-x: hidden;
+    line-height: 1.6;
 }
 
-/* Custom Scrollbar - Microsoft Blue */
+/* Custom Scrollbar - Google Style */
 ::-webkit-scrollbar {
-    width: 10px;
+    width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-    background: linear-gradient(180deg, #e6f0ff 0%, #e6ffe6 50%, #fff5e6 100%);
+    background: #F1F3F4;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: linear-gradient(180deg, #0078D4 0%, #7FBA00 50%, #FFB900 100%);
-    border-radius: 5px;
+    background: #DADCE0;
+    border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(180deg, #1A9DFF 0%, #9AD500 50%, #F25022 100%);
+    background: #5F6368;
 }
 
 /* Text Selection */
 ::selection {
-    background: rgba(0, 120, 212, 0.3);
-    color: #1B1B1B;
+    background: rgba(66, 133, 244, 0.2);
+    color: #202124;
 }
 
-/* Animations */
+/* ========================================
+   ANIMATIONS
+   ======================================== */
+
 @keyframes fadeIn {
     from {
         opacity: 0;
-        transform: translateY(10px);
+        transform: translateY(8px);
     }
 
     to {
@@ -63,60 +71,12 @@ body {
 @keyframes fadeInUp {
     from {
         opacity: 0;
-        transform: translateY(20px);
+        transform: translateY(16px);
     }
 
     to {
         opacity: 1;
         transform: translateY(0);
-    }
-}
-
-@keyframes fadeInLeft {
-    from {
-        opacity: 0;
-        transform: translateX(-20px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-@keyframes fadeInRight {
-    from {
-        opacity: 0;
-        transform: translateX(20px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-@keyframes pulse-slow {
-
-    0%,
-    100% {
-        opacity: 0.6;
-        transform: scale(1);
-    }
-
-    50% {
-        opacity: 0.8;
-        transform: scale(1.05);
-    }
-}
-
-@keyframes spin-slow {
-    from {
-        transform: rotate(0deg);
-    }
-
-    to {
-        transform: rotate(360deg);
     }
 }
 
@@ -128,271 +88,379 @@ body {
     }
 
     50% {
-        transform: translateY(-10px);
+        transform: translateY(-8px);
     }
 }
 
-@keyframes gradient-shift {
+@keyframes shimmer {
     0% {
-        background-position: 0% 50%;
-    }
-
-    50% {
-        background-position: 100% 50%;
+        background-position: -200% 0;
     }
 
     100% {
-        background-position: 0% 50%;
+        background-position: 200% 0;
     }
 }
 
-@keyframes rainbow-border {
-    0% {
-        border-color: #0078D4;
-    }
+@keyframes googleDots {
 
-    25% {
-        border-color: #7FBA00;
+    0%,
+    100% {
+        opacity: 0.4;
     }
 
     50% {
-        border-color: #FFB900;
-    }
-
-    75% {
-        border-color: #F25022;
-    }
-
-    100% {
-        border-color: #0078D4;
+        opacity: 1;
     }
 }
 
-/* Animation Classes */
 .animate-fadeIn {
-    animation: fadeIn 0.5s ease-out forwards;
+    animation: fadeIn 0.4s ease-out forwards;
 }
 
 .animate-fadeInUp {
-    animation: fadeInUp 0.6s ease-out forwards;
-}
-
-.animate-fadeInLeft {
-    animation: fadeInLeft 0.6s ease-out forwards;
-}
-
-.animate-fadeInRight {
-    animation: fadeInRight 0.6s ease-out forwards;
-}
-
-.animate-pulse-slow {
-    animation: pulse-slow 4s ease-in-out infinite;
-}
-
-.animate-spin-slow {
-    animation: spin-slow 20s linear infinite;
+    animation: fadeInUp 0.5s ease-out forwards;
 }
 
 .animate-float {
-    animation: float 3s ease-in-out infinite;
+    animation: float 6s ease-in-out infinite;
 }
 
-.animate-gradient {
-    animation: gradient-shift 5s ease infinite;
-    background-size: 200% 200%;
-}
+/* ========================================
+   GOOGLE SECTION STYLES
+   ======================================== */
 
-.animate-rainbow-border {
-    animation: rainbow-border 4s linear infinite;
-}
-
-/* Colorful Section Backgrounds */
 .section-blue {
-    background: linear-gradient(135deg, #e6f3ff 0%, #cce5ff 50%, #e6f3ff 100%);
-    border-top: 3px solid #0078D4;
-    border-bottom: 3px solid #0078D4;
+    background: linear-gradient(135deg, #E8F0FE 0%, #F8F9FA 100%);
+    border-top: 1px solid #DADCE0;
+    border-bottom: 1px solid #DADCE0;
 }
 
 .section-green {
-    background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 50%, #e8f5e9 100%);
-    border-top: 3px solid #7FBA00;
-    border-bottom: 3px solid #7FBA00;
+    background: linear-gradient(135deg, #E6F4EA 0%, #F8F9FA 100%);
+    border-top: 1px solid #DADCE0;
+    border-bottom: 1px solid #DADCE0;
 }
 
 .section-yellow {
-    background: linear-gradient(135deg, #fff8e1 0%, #ffecb3 50%, #fff8e1 100%);
-    border-top: 3px solid #FFB900;
-    border-bottom: 3px solid #FFB900;
+    background: linear-gradient(135deg, #FEF7E0 0%, #F8F9FA 100%);
+    border-top: 1px solid #DADCE0;
+    border-bottom: 1px solid #DADCE0;
 }
 
 .section-red {
-    background: linear-gradient(135deg, #ffebee 0%, #ffcdd2 50%, #ffebee 100%);
-    border-top: 3px solid #F25022;
-    border-bottom: 3px solid #F25022;
+    background: linear-gradient(135deg, #FCE8E6 0%, #F8F9FA 100%);
+    border-top: 1px solid #DADCE0;
+    border-bottom: 1px solid #DADCE0;
 }
 
 .section-rainbow {
-    background: linear-gradient(135deg, #e6f3ff 0%, #e8f5e9 33%, #fff8e1 66%, #ffebee 100%);
+    background: linear-gradient(135deg, #E8F0FE 0%, #E6F4EA 33%, #FEF7E0 66%, #FCE8E6 100%);
 }
 
-/* Colorful Card Styles */
+/* ========================================
+   GOOGLE CARD STYLES (Material Design)
+   ======================================== */
+
+.card-elevated {
+    background: #FFFFFF;
+    border-radius: 12px;
+    box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+    transition: all 0.2s ease;
+}
+
+.card-elevated:hover {
+    box-shadow: 0 1px 3px 0 rgba(60, 64, 67, 0.3), 0 4px 8px 3px rgba(60, 64, 67, 0.15);
+    transform: translateY(-2px);
+}
+
 .card-blue {
-    background: linear-gradient(145deg, #ffffff 0%, #e6f3ff 100%);
-    border-left: 4px solid #0078D4;
-    box-shadow: 0 4px 15px rgba(0, 120, 212, 0.15);
+    background: #FFFFFF;
+    border-left: 4px solid #4285F4;
+    border-radius: 8px;
+    box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+    transition: all 0.2s ease;
 }
 
 .card-blue:hover {
-    background: linear-gradient(145deg, #e6f3ff 0%, #cce5ff 100%);
-    box-shadow: 0 8px 25px rgba(0, 120, 212, 0.25);
-    transform: translateY(-3px);
+    box-shadow: 0 1px 3px 0 rgba(60, 64, 67, 0.3), 0 4px 8px 3px rgba(60, 64, 67, 0.15);
+    transform: translateY(-2px);
 }
 
 .card-green {
-    background: linear-gradient(145deg, #ffffff 0%, #e8f5e9 100%);
-    border-left: 4px solid #7FBA00;
-    box-shadow: 0 4px 15px rgba(127, 186, 0, 0.15);
+    background: #FFFFFF;
+    border-left: 4px solid #34A853;
+    border-radius: 8px;
+    box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+    transition: all 0.2s ease;
 }
 
 .card-green:hover {
-    background: linear-gradient(145deg, #e8f5e9 0%, #c8e6c9 100%);
-    box-shadow: 0 8px 25px rgba(127, 186, 0, 0.25);
-    transform: translateY(-3px);
+    box-shadow: 0 1px 3px 0 rgba(60, 64, 67, 0.3), 0 4px 8px 3px rgba(60, 64, 67, 0.15);
+    transform: translateY(-2px);
 }
 
 .card-yellow {
-    background: linear-gradient(145deg, #ffffff 0%, #fff8e1 100%);
-    border-left: 4px solid #FFB900;
-    box-shadow: 0 4px 15px rgba(255, 185, 0, 0.15);
+    background: #FFFFFF;
+    border-left: 4px solid #FBBC04;
+    border-radius: 8px;
+    box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+    transition: all 0.2s ease;
 }
 
 .card-yellow:hover {
-    background: linear-gradient(145deg, #fff8e1 0%, #ffecb3 100%);
-    box-shadow: 0 8px 25px rgba(255, 185, 0, 0.25);
-    transform: translateY(-3px);
+    box-shadow: 0 1px 3px 0 rgba(60, 64, 67, 0.3), 0 4px 8px 3px rgba(60, 64, 67, 0.15);
+    transform: translateY(-2px);
 }
 
 .card-red {
-    background: linear-gradient(145deg, #ffffff 0%, #ffebee 100%);
-    border-left: 4px solid #F25022;
-    box-shadow: 0 4px 15px rgba(242, 80, 34, 0.15);
+    background: #FFFFFF;
+    border-left: 4px solid #EA4335;
+    border-radius: 8px;
+    box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+    transition: all 0.2s ease;
 }
 
 .card-red:hover {
-    background: linear-gradient(145deg, #ffebee 0%, #ffcdd2 100%);
-    box-shadow: 0 8px 25px rgba(242, 80, 34, 0.25);
-    transform: translateY(-3px);
+    box-shadow: 0 1px 3px 0 rgba(60, 64, 67, 0.3), 0 4px 8px 3px rgba(60, 64, 67, 0.15);
+    transform: translateY(-2px);
 }
 
 .card-rainbow {
-    background: linear-gradient(145deg, #ffffff 0%, #f0f6ff 25%, #f5fff5 50%, #fffef5 75%, #fff5f5 100%);
-    border: 2px solid transparent;
-    background-clip: padding-box;
+    background: #FFFFFF;
+    border-radius: 12px;
     position: relative;
+    box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+    overflow: hidden;
 }
 
 .card-rainbow::before {
     content: '';
     position: absolute;
-    inset: -2px;
-    background: linear-gradient(135deg, #0078D4, #7FBA00, #FFB900, #F25022, #0078D4);
-    border-radius: inherit;
-    z-index: -1;
-    background-size: 200% 200%;
-    animation: gradient-shift 4s ease infinite;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #4285F4 25%, #34A853 25%, #34A853 50%, #FBBC04 50%, #FBBC04 75%, #EA4335 75%);
 }
 
-/* Glass Effect with Color Tints */
+/* ========================================
+   GLASS EFFECTS (Google Style)
+   ======================================== */
+
 .glass-blue {
-    background: rgba(0, 120, 212, 0.1);
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(0, 120, 212, 0.3);
+    background: rgba(66, 133, 244, 0.08);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(66, 133, 244, 0.2);
+    border-radius: 12px;
 }
 
 .glass-green {
-    background: rgba(127, 186, 0, 0.1);
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(127, 186, 0, 0.3);
-}
-
-.glass-yellow {
-    background: rgba(255, 185, 0, 0.1);
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 185, 0, 0.3);
-}
-
-.glass-red {
-    background: rgba(242, 80, 34, 0.1);
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(242, 80, 34, 0.3);
+    background: rgba(52, 168, 83, 0.08);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(52, 168, 83, 0.2);
+    border-radius: 12px;
 }
 
 .glass-rainbow {
-    background: linear-gradient(135deg,
-            rgba(0, 120, 212, 0.08) 0%,
-            rgba(127, 186, 0, 0.08) 33%,
-            rgba(255, 185, 0, 0.08) 66%,
-            rgba(242, 80, 34, 0.08) 100%);
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(0, 120, 212, 0.2);
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(16px);
+    border: 1px solid #DADCE0;
+    border-radius: 12px;
 }
 
-/* Microsoft Rainbow Gradient Text */
+/* ========================================
+   GOOGLE TEXT STYLES
+   ======================================== */
+
 .gradient-text {
-    background: linear-gradient(90deg, #0078D4, #7FBA00, #FFB900, #F25022);
+    background: linear-gradient(90deg, #4285F4, #34A853, #FBBC04, #EA4335);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
 }
 
 .gradient-text-blue {
-    background: linear-gradient(90deg, #0078D4, #1A9DFF, #0078D4);
+    background: linear-gradient(90deg, #4285F4, #1A73E8);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
 }
 
-/* Rainbow Underline with Animation */
+/* ========================================
+   GOOGLE DIVIDERS & UNDERLINES
+   ======================================== */
+
+.divider-google {
+    height: 4px;
+    background: linear-gradient(90deg, #4285F4 25%, #34A853 25%, #34A853 50%, #FBBC04 50%, #FBBC04 75%, #EA4335 75%);
+    border-radius: 2px;
+}
+
+.divider-blue {
+    height: 3px;
+    background: linear-gradient(90deg, #4285F4, #1A73E8);
+    border-radius: 2px;
+}
+
+.divider-rainbow {
+    height: 4px;
+    background: linear-gradient(90deg, #4285F4 25%, #34A853 25%, #34A853 50%, #FBBC04 50%, #FBBC04 75%, #EA4335 75%);
+    border-radius: 2px;
+}
+
 .gradient-underline {
-    background: linear-gradient(90deg, #0078D4, #7FBA00, #FFB900, #F25022);
-    background-size: 200% 100%;
-    animation: gradient-shift 3s ease infinite;
+    height: 4px;
+    background: linear-gradient(90deg, #4285F4, #34A853, #FBBC04, #EA4335);
+    border-radius: 2px;
 }
 
-/* Hover Effects */
-.hover-lift {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+/* ========================================
+   GOOGLE TAG/CHIP STYLES
+   ======================================== */
+
+.tag-blue {
+    background: #E8F0FE;
+    color: #1A73E8;
+    border: 1px solid #D2E3FC;
+    font-weight: 500;
 }
 
-.hover-lift:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 20px 40px rgba(0, 120, 212, 0.2);
+.tag-green {
+    background: #E6F4EA;
+    color: #137333;
+    border: 1px solid #CEEAD6;
+    font-weight: 500;
 }
 
-/* Colorful Glow Effects */
-.glow-blue {
-    box-shadow: 0 0 25px rgba(0, 120, 212, 0.4);
+.tag-yellow {
+    background: #FEF7E0;
+    color: #B06000;
+    border: 1px solid #FEEFC3;
+    font-weight: 500;
 }
 
-.glow-green {
-    box-shadow: 0 0 25px rgba(127, 186, 0, 0.4);
+.tag-red {
+    background: #FCE8E6;
+    color: #C5221F;
+    border: 1px solid #FAD2CF;
+    font-weight: 500;
 }
 
-.glow-red {
-    box-shadow: 0 0 25px rgba(242, 80, 34, 0.4);
+/* ========================================
+   GOOGLE BUTTON STYLES
+   ======================================== */
+
+.btn-blue {
+    background: #4285F4;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: 0.25px;
+    transition: all 0.2s ease;
+    box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+    border: none;
+    cursor: pointer;
 }
 
-.glow-yellow {
-    box-shadow: 0 0 25px rgba(255, 185, 0, 0.4);
+.btn-blue:hover {
+    background: #1A73E8;
+    box-shadow: 0 1px 3px 0 rgba(60, 64, 67, 0.3), 0 4px 8px 3px rgba(60, 64, 67, 0.15);
 }
 
-.glow-rainbow {
-    box-shadow: 0 0 15px rgba(0, 120, 212, 0.3), 0 0 30px rgba(127, 186, 0, 0.2), 0 0 45px rgba(255, 185, 0, 0.1);
+.btn-blue:active {
+    background: #1557B0;
 }
 
-/* Nav Link Underline Animation */
+.btn-green {
+    background: #34A853;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: 0.25px;
+    transition: all 0.2s ease;
+    box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+    border: none;
+    cursor: pointer;
+}
+
+.btn-green:hover {
+    background: #188038;
+    box-shadow: 0 1px 3px 0 rgba(60, 64, 67, 0.3), 0 4px 8px 3px rgba(60, 64, 67, 0.15);
+}
+
+.btn-outline-blue {
+    background: transparent;
+    color: #4285F4;
+    padding: 12px 24px;
+    border: 2px solid #4285F4;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: 0.25px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.btn-outline-blue:hover {
+    background: #E8F0FE;
+}
+
+.btn-outline-green {
+    background: transparent;
+    color: #34A853;
+    padding: 12px 24px;
+    border: 2px solid #34A853;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: 0.25px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.btn-outline-green:hover {
+    background: #E6F4EA;
+}
+
+/* ========================================
+   GOOGLE INPUT STYLES
+   ======================================== */
+
+.input-styled {
+    background: #FFFFFF;
+    border: 1px solid #DADCE0;
+    border-radius: 8px;
+    padding: 14px 16px;
+    color: #202124;
+    font-size: 14px;
+    transition: all 0.2s ease;
+    width: 100%;
+}
+
+.input-styled:focus {
+    border-color: #4285F4;
+    box-shadow: 0 0 0 2px rgba(66, 133, 244, 0.2);
+    outline: none;
+}
+
+.input-styled::placeholder {
+    color: #80868B;
+}
+
+/* ========================================
+   NAVIGATION STYLES
+   ======================================== */
+
 .nav-link {
     position: relative;
+    color: #5F6368;
+    font-weight: 500;
+    transition: color 0.2s ease;
 }
 
 .nav-link::after {
@@ -402,141 +470,64 @@ body {
     bottom: -6px;
     width: 0;
     height: 3px;
-    background: linear-gradient(90deg, #0078D4, #7FBA00, #FFB900);
+    background: #4285F4;
     transition: width 0.3s ease;
     border-radius: 2px;
+}
+
+.nav-link:hover {
+    color: #4285F4;
 }
 
 .nav-link:hover::after {
     width: 100%;
 }
 
+.nav-link.active {
+    color: #4285F4;
+}
+
 .nav-link.active::after {
     width: 100%;
 }
 
-/* Colorful Tags/Badges */
-.tag-blue {
-    background: linear-gradient(135deg, #e6f3ff, #cce5ff);
-    color: #0078D4;
-    border: 1px solid #0078D4;
-    font-weight: 500;
+/* ========================================
+   GLOW EFFECTS
+   ======================================== */
+
+.glow-blue {
+    box-shadow: 0 0 20px rgba(66, 133, 244, 0.25);
 }
 
-.tag-green {
-    background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
-    color: #5E8B00;
-    border: 1px solid #7FBA00;
-    font-weight: 500;
+.glow-green {
+    box-shadow: 0 0 20px rgba(52, 168, 83, 0.25);
 }
 
-.tag-red {
-    background: linear-gradient(135deg, #ffebee, #ffcdd2);
-    color: #D13411;
-    border: 1px solid #F25022;
-    font-weight: 500;
+.glow-red {
+    box-shadow: 0 0 20px rgba(234, 67, 53, 0.25);
 }
 
-.tag-yellow {
-    background: linear-gradient(135deg, #fff8e1, #ffecb3);
-    color: #B88A00;
-    border: 1px solid #FFB900;
-    font-weight: 500;
+.glow-yellow {
+    box-shadow: 0 0 20px rgba(251, 188, 4, 0.25);
 }
 
-/* Colorful Button Styles */
-.btn-blue {
-    background: linear-gradient(135deg, #0078D4 0%, #005A9E 100%);
-    color: white;
-    padding: 12px 28px;
-    border-radius: 25px;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(0, 120, 212, 0.3);
+/* ========================================
+   HOVER EFFECTS
+   ======================================== */
+
+.hover-lift {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.btn-blue:hover {
-    background: linear-gradient(135deg, #1A9DFF 0%, #0078D4 100%);
-    box-shadow: 0 6px 20px rgba(0, 120, 212, 0.4);
-    transform: translateY(-2px);
+.hover-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 1px 3px 0 rgba(60, 64, 67, 0.3), 0 4px 8px 3px rgba(60, 64, 67, 0.15);
 }
 
-.btn-green {
-    background: linear-gradient(135deg, #7FBA00 0%, #5E8B00 100%);
-    color: white;
-    padding: 12px 28px;
-    border-radius: 25px;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(127, 186, 0, 0.3);
-}
+/* ========================================
+   UTILITY CLASSES
+   ======================================== */
 
-.btn-green:hover {
-    background: linear-gradient(135deg, #9AD500 0%, #7FBA00 100%);
-    box-shadow: 0 6px 20px rgba(127, 186, 0, 0.4);
-    transform: translateY(-2px);
-}
-
-.btn-outline-blue {
-    background: transparent;
-    color: #0078D4;
-    padding: 12px 28px;
-    border: 2px solid #0078D4;
-    border-radius: 25px;
-    font-weight: 600;
-    transition: all 0.3s ease;
-}
-
-.btn-outline-blue:hover {
-    background: rgba(0, 120, 212, 0.1);
-    box-shadow: 0 4px 15px rgba(0, 120, 212, 0.2);
-}
-
-.btn-outline-green {
-    background: transparent;
-    color: #5E8B00;
-    padding: 12px 28px;
-    border: 2px solid #7FBA00;
-    border-radius: 25px;
-    font-weight: 600;
-    transition: all 0.3s ease;
-}
-
-.btn-outline-green:hover {
-    background: rgba(127, 186, 0, 0.1);
-    box-shadow: 0 4px 15px rgba(127, 186, 0, 0.2);
-}
-
-/* Colorful Input Styles */
-.input-styled {
-    background: linear-gradient(135deg, #ffffff 0%, #f5f9ff 100%);
-    border: 2px solid #e0e0e0;
-    border-radius: 12px;
-    padding: 14px 18px;
-    color: #1B1B1B;
-    transition: all 0.3s ease;
-}
-
-.input-styled:focus {
-    border-color: #0078D4;
-    background: linear-gradient(135deg, #ffffff 0%, #e6f3ff 100%);
-    box-shadow: 0 0 0 4px rgba(0, 120, 212, 0.15);
-    outline: none;
-}
-
-/* Page Transitions */
-.page-enter {
-    opacity: 0;
-    transform: translateY(20px);
-}
-
-.page-enter-active {
-    opacity: 1;
-    transform: translateY(0);
-    transition: all 0.3s ease;
-}
-
-/* Utility Classes */
 .delay-100 {
     animation-delay: 100ms;
 }
@@ -586,12 +577,6 @@ body {
     animation-delay: 500ms;
 }
 
-/* Writing Mode */
-.writing-mode-vertical-rl {
-    writing-mode: vertical-rl;
-    text-orientation: mixed;
-}
-
 /* Link Underline */
 .link-underline {
     position: relative;
@@ -604,7 +589,7 @@ body {
     bottom: -2px;
     width: 0;
     height: 2px;
-    background: linear-gradient(90deg, #0078D4, #7FBA00);
+    background: #4285F4;
     transition: width 0.3s ease;
 }
 
@@ -612,15 +597,46 @@ body {
     width: 100%;
 }
 
-/* Colorful Dividers */
-.divider-rainbow {
-    height: 4px;
-    background: linear-gradient(90deg, #0078D4, #7FBA00, #FFB900, #F25022);
-    border-radius: 2px;
+/* ========================================
+   GOOGLE PARTNERS SPECIFIC
+   ======================================== */
+
+.google-partner-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: #FFFFFF;
+    border: 1px solid #DADCE0;
+    border-radius: 8px;
+    font-weight: 500;
+    color: #202124;
+    box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
 }
 
-.divider-blue {
-    height: 3px;
-    background: linear-gradient(90deg, #0078D4, #1A9DFF);
-    border-radius: 2px;
+.google-dots {
+    display: flex;
+    gap: 4px;
+}
+
+.google-dots span {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+}
+
+.google-dots span:nth-child(1) {
+    background: #4285F4;
+}
+
+.google-dots span:nth-child(2) {
+    background: #EA4335;
+}
+
+.google-dots span:nth-child(3) {
+    background: #FBBC04;
+}
+
+.google-dots span:nth-child(4) {
+    background: #34A853;
 }

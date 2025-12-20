@@ -1,6 +1,7 @@
 import { getSummary, getSkills, getEducation, getCertifications } from '../data/portfolioData';
-import { FiAward, FiBookOpen, FiCode } from 'react-icons/fi';
+import { FiAward, FiBookOpen, FiCode, FiDownload } from 'react-icons/fi';
 import SectionHeader from '../components/SectionHeader';
+import resumePdf from '../assets/resume.pdf';
 
 const AboutPage = () => {
     const summary = getSummary();
@@ -56,6 +57,18 @@ const AboutPage = () => {
                     title="About Me"
                     subtitle="Passionate about building scalable systems and beautiful user experiences"
                 />
+
+                {/* Download Resume Button */}
+                <div className="flex justify-center animate-fadeIn">
+                    <a
+                        href={resumePdf}
+                        download="KS_Vinayaka_Resume.pdf"
+                        className="btn-red flex items-center gap-3 px-8 py-4 text-lg group shadow-goog-2 hover:shadow-goog-3 transition-all duration-300"
+                    >
+                        <FiDownload size={24} className="group-hover:translate-y-0.5 transition-transform duration-200" />
+                        Download My Resume
+                    </a>
+                </div>
 
                 {/* Summary Section */}
                 <section className="card-rainbow p-8 animate-fadeIn">

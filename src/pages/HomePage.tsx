@@ -1,7 +1,8 @@
 import { getPersonal, getSummary, getSkills } from '../data/portfolioData';
-import { FiGithub, FiLinkedin, FiMail, FiArrowRight } from 'react-icons/fi';
+import { FiGithub, FiLinkedin, FiMail, FiArrowRight, FiDownload } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 import profileImage from '../assets/profile.png';
+import resumePdf from '../assets/resume.pdf';
 
 const HomePage = () => {
     const personal = getPersonal();
@@ -52,6 +53,14 @@ const HomePage = () => {
                             <Link to="/contact" className="btn-outline-green">
                                 Contact Me
                             </Link>
+                            <a
+                                href={resumePdf}
+                                download="KS_Vinayaka_Resume.pdf"
+                                className="btn-red flex items-center gap-2 group"
+                            >
+                                <FiDownload className="group-hover:translate-y-0.5 transition-transform duration-200" />
+                                Download Resume
+                            </a>
                         </div>
 
                         {/* Social Links */}

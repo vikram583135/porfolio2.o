@@ -26,8 +26,8 @@ const BlogPage = () => {
     const blogPosts: BlogPost[] = [
         {
             id: 1,
-            title: "From Monoliths to Real-Time Systems — My Journey as a Full-Stack Developer",
-            excerpt: "Capturing my journey from traditional CRUD-based applications to event-driven architectures, exploring how I evolved from making things work to making systems scalable and production-ready.",
+            title: "From Monoliths to Real-Time Systems — My Journey as a Java Developer",
+            excerpt: "Reflecting on the challenges and lessons learned while building scalable real-time architectures from scratch, exploring how I evolved from making things work to making systems scalable and production-ready.",
             date: "December 2024",
             readTime: "5 min read",
             category: "Career",

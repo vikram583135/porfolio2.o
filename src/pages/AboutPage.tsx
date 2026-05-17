@@ -10,12 +10,12 @@ const AboutPage = () => {
     const certifications = getCertifications();
 
     const skillCategories = {
-        'Languages': { skills: ['Python', 'Java', 'C#', 'TypeScript', 'JavaScript', 'C++', 'SQL'], color: 'blue' },
-        'Frameworks': { skills: ['Django', 'NestJS', 'Node.js', '.NET', 'React', 'Next.js', 'React Native'], color: 'green' },
-        'Frontend': { skills: ['HTML5', 'CSS3'], color: 'yellow' },
-        'Cloud & DevOps': { skills: ['AWS (EC2, S3, IAM, CloudWatch)', 'Docker', 'CI/CD'], color: 'red' },
-        'Databases & Tools': { skills: ['PostgreSQL', 'MySQL', 'Redis', 'Celery', 'WebSockets'], color: 'blue' },
-        'Concepts': { skills: ['System Design', 'Caching', 'Async Workers'], color: 'green' },
+        'Languages': { skills: ['Java 17', 'Python', 'TypeScript', 'SQL'], color: 'blue' },
+        'Java Ecosystem': { skills: ['Spring Boot 3', 'Spring Security', 'Spring Data JPA', 'Spring Cloud', 'Hibernate', 'Maven'], color: 'green' },
+        'Messaging & Cache': { skills: ['Apache Kafka', 'Redis', 'Celery'], color: 'yellow' },
+        'Cloud & DevOps': { skills: ['AWS (EC2, S3, IAM, Cost Explorer)', 'Docker', 'Docker Compose', 'CI/CD', 'Git'], color: 'red' },
+        'Databases': { skills: ['PostgreSQL', 'MySQL', 'SQLite'], color: 'blue' },
+        'APIs & Tools': { skills: ['REST APIs', 'JWT/OAuth2', 'JUnit 5', 'Testcontainers', 'Micrometer'], color: 'green' },
     };
 
     const getCardClass = (color: string) => {

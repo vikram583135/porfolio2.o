@@ -13,6 +13,10 @@ const ProjectsPage = () => {
 
     const getTechColor = (tech: string): string => {
         const colors: Record<string, string> = {
+            'Java 17': 'tag-red',
+            'Spring Boot 3.2': 'tag-green',
+            'Spring Security': 'tag-blue',
+            'Apache Kafka': 'tag-yellow',
             'Django': 'tag-green',
             'React': 'tag-blue',
             'Python': 'tag-yellow',
@@ -44,7 +48,7 @@ const ProjectsPage = () => {
                 {/* Page Header */}
                 <SectionHeader
                     title="My Projects"
-                    subtitle="A collection of projects showcasing my skills in full-stack development"
+                    subtitle="A collection of projects showcasing my skills in Java and backend development"
                 />
 
                 {/* Filter Pills */}
@@ -60,11 +64,11 @@ const ProjectsPage = () => {
                         All Projects
                     </button>
                     {[
-                        { name: 'Django', color: 'green' },
-                        { name: 'React', color: 'blue' },
-                        { name: 'NestJS', color: 'red' },
-                        { name: '.NET', color: 'purple' },
-                        { name: 'JavaScript', color: 'yellow' }
+                        { name: 'Java 17', color: 'red' },
+                        { name: 'Spring Boot 3.2', color: 'green' },
+                        { name: 'Django', color: 'blue' },
+                        { name: 'React', color: 'yellow' },
+                        { name: 'PostgreSQL', color: 'purple' }
                     ].map((tech) => (
                         <button
                             key={tech.name}

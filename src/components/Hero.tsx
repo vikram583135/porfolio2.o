@@ -9,9 +9,9 @@ const Hero = () => {
         <h1 className="font-poppins font-bold text-5xl md:text-7xl text-white">
           K S Vinayaka
         </h1>
-        <p className="font-roboto text-muted-grey text-lg mt-4">
-          Full-Stack Web Developer
-        </p>
+        <h2 className="text-xl md:text-3xl text-text-secondary mb-10 max-w-2xl font-light">
+          Java Developer
+        </h2>
         <button className="mt-8 px-8 py-3 border border-white/50 rounded-full text-white uppercase text-sm tracking-widest transition-all duration-300 hover:border-white hover:bg-white/10">
           Contact
         </button>

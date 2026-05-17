@@ -1,42 +1,41 @@
 {
   "personal": {
     "name": "K S VINAYAKA",
-    "title": "Full-Stack + Cloud Engineer",
+    "title": "Java Developer",
     "location": "Bengaluru, India",
     "email": "vikram583135@gmail.com",
     "phone": "+91 9606578966",
     "github": "https://github.com/vikram583135",
     "linkedin": "https://www.linkedin.com/in/k-s-vinayaka-8793a7225/"
   },
-  "summary": "Full-Stack + Cloud Engineer with proven success developing real-time platforms, distributed workloads, modular monorepo systems, and scalable backend architectures. Strong engineering mindset with AWS certification and hands-on project experience.",
+  "summary": "AWS Certified Java Developer with hands-on experience building production-grade Spring Boot microservices. Architected CloudSentry — an AI-powered DevOps observability platform with Kafka streaming, Redis caching, and role-based dashboards. Strong in Java 17, Spring Security, JPA/Hibernate, REST APIs, and event-driven architecture. Founded a consultancy delivering 6 client projects with 100% satisfaction.",
   "skills": [
+    "Java 17",
     "Python",
-    "Java",
-    "C#",
     "TypeScript",
-    "JavaScript",
-    "C++",
     "SQL",
-    "Django",
-    "NestJS",
-    "Node.js",
-    ".NET",
-    "React",
-    "Next.js",
-    "React Native",
-    "HTML5",
-    "CSS3",
-    "AWS (EC2, S3, IAM, CloudWatch)",
+    "Spring Boot 3",
+    "Spring Security",
+    "Spring Data JPA",
+    "Spring Cloud",
+    "Hibernate",
+    "Maven",
+    "Apache Kafka",
     "Redis",
     "Celery",
-    "Docker",
-    "CI/CD",
     "PostgreSQL",
     "MySQL",
-    "WebSockets",
-    "System Design",
-    "Caching",
-    "Async Workers"
+    "SQLite",
+    "AWS (EC2, S3, IAM, Cost Explorer)",
+    "Docker",
+    "Docker Compose",
+    "CI/CD",
+    "Git",
+    "REST APIs",
+    "JWT/OAuth2",
+    "JUnit 5",
+    "Testcontainers",
+    "Micrometer"
   ],
   "education": [
     {
@@ -46,107 +45,56 @@
     },
     {
       "degree": "BCA",
-      "year": "2021-2024",
+      "year": "2021-2023",
       "institution": "VSK University"
-    },
-    {
-      "degree": "PUC (Computer Science)",
-      "year": "2018-2020",
-      "institution": "KSOU"
     }
   ],
   "certifications": [
-    "AWS Cloud Practitioner (CLF-C02)",
-    "Python for Beginners — Simplilearn",
-    "Introduction to AI — SkillUp"
+    "AWS Certified Cloud Practitioner (CLF-C02) | Amazon Web Services"
   ],
   "projects": [
     {
-      "title": "PlatePal — Real-Time Food Delivery Platform",
-      "description": "Real-time courier tracking using WebSockets; ML-powered ETA engine; Celery pipelines for background processing; spatial query optimizations.",
+      "title": "CloudSentry | AI-Powered DevOps Incident & Cost Optimization Platform",
+      "description": "Architected production-grade observability platform combining features of Datadog + PagerDuty + AWS Cost Explorer. Built real-time metrics ingestion via Kafka streams tracking CPU, memory, latency, and error rates. Implemented anomaly detection engine with statistical + rule-based analysis and predictive insights. Developed automated incident management with intelligent severity calculation and lifecycle tracking. Engineered AI Root Cause Analysis module using configurable rule engine with optional LLM integration. Built cloud cost analyzer with AWS SDK v2 for cost tracking, utilization monitoring, and optimization recommendations. Designed multi-channel notification engine (Email, Slack, Webhook) with deduplication and escalation policies. Implemented JWT authentication + RBAC with role-based dashboards for Admin, SRE, Developer, and Manager. Used Spring Data JPA, Redis caching, and Kafka consumers with Docker Compose for infrastructure.",
       "tech_stack": [
-        "Django",
-        "React",
-        "Redis",
-        "Celery",
+        "Java 17",
+        "Spring Boot 3.2",
+        "Spring Security",
         "PostgreSQL",
-        "WebSockets"
+        "Apache Kafka",
+        "Redis",
+        "AWS SDK",
+        "Docker"
       ],
+      "github": "https://github.com/vikram583135/CloudSentry",
       "source": "resume (uploaded PDF)"
     },
     {
-      "title": "AttendWise — Distributed Attendance System",
-      "description": "Scalable REST APIs with TypeORM; JWT + RBAC security; shared logic via TypeScript monorepo.",
+      "title": "PlatePal | Full-Stack Food Ordering Platform",
+      "description": "Built Zomato-like platform with interfaces for customers, restaurants, delivery partners, and admins. Implemented real-time order tracking via WebSockets and mock payment integration. Developed role-based dashboards with order management and analytics for each user type.",
       "tech_stack": [
-        "NestJS",
-        "Next.js",
-        "React Native",
+        "Django REST Framework",
+        "React",
+        "TypeScript",
         "PostgreSQL",
-        "Redis"
+        "Redis",
+        "JWT",
+        "WebSockets"
       ],
+      "github": "https://github.com/vikram583135/PlatePal",
       "source": "resume (uploaded PDF)"
     },
     {
       "title": "Placement Management System",
-      "description": "Multi-role recruitment platform (Django) supporting large datasets, automated analytics and bulk processing.",
+      "description": "Built campus recruitment platform automating workflows for students, companies, and TPO. Implemented role-based access, job posting, application tracking — eliminated 70% manual work.",
       "tech_stack": [
-        "Django 5",
-        "PostgreSQL"
+        "Django",
+        "Python",
+        "Bootstrap",
+        "SQLite"
       ],
       "github": "https://github.com/vikram583135/placement_system",
-      "source": "resume + GitHub",
-      "github_ref": "https://github.com/vikram583135/placement_system"
-    },
-    {
-      "title": "LEGAL-ADVISOR-SEARCH-ENGINE",
-      "description": "Filter-based advisor search implemented in ASP.NET (.NET) with SQL backend.",
-      "tech_stack": [
-        "C#",
-        ".NET",
-        "SQL"
-      ],
-      "github": "https://github.com/vikram583135/LEGAL-ADVISOR-SEARCH-ENGINE",
-      "source": "GitHub"
-    },
-    {
-      "title": "portfolio (personal site)",
-      "description": "Personal portfolio site (HTML/CSS) with pages for education, projects, and skills.",
-      "tech_stack": [
-        "HTML",
-        "CSS"
-      ],
-      "github": "https://github.com/vikram583135/portfolio",
-      "source": "GitHub"
-    },
-    {
-      "title": "amazon_clone",
-      "description": "Frontend clone/demo (HTML) showcasing ecommerce UI layout.",
-      "tech_stack": [
-        "HTML"
-      ],
-      "github": "https://github.com/vikram583135/amazon_clone",
-      "source": "GitHub"
-    },
-    {
-      "title": "grocery_billing",
-      "description": "Web-based grocery billing demo project (JavaScript).",
-      "tech_stack": [
-        "JavaScript",
-        "HTML"
-      ],
-      "github": "https://github.com/vikram583135/grocery_billing",
-      "source": "GitHub"
-    },
-    {
-      "title": "hostel_mgmt",
-      "description": "Hostel management frontend (HTML).",
-      "tech_stack": [
-        "HTML",
-        "CSS",
-        "JavaScript"
-      ],
-      "github": "https://github.com/vikram583135/hostel_mgmt",
-      "source": "GitHub"
+      "source": "resume (uploaded PDF)"
     }
   ],
   "blog_posts": [],
@@ -159,10 +107,8 @@
   },
   "notes": {
     "data_sources": {
-      "resume_pdf": "/mnt/data/Ks_vinayaka_cv_ (1).pdf",
-      "github_user": "https://github.com/vikram583135",
-      "linkedin_profile": "https://www.linkedin.com/in/k-s-vinayaka-8793a7225/ (fetch failed)"
-    },
-    "next_steps": "Provide LinkedIn post text or post URLs to include blog entries. I can also expand any project entry into detailed case-studies, screenshots, and demo links."
+      "resume_pdf": "Ks_vinayaka_cv_jdev(1)-1775805148224.pdf",
+      "github_user": "https://github.com/vikram583135"
+    }
   }
 }

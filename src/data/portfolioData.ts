@@ -24,6 +24,7 @@ export interface Project {
     source: string;
     github?: string;
     github_ref?: string;
+    live?: string;
 }
 
 export interface Contact {

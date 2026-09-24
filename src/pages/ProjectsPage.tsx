@@ -1,5 +1,5 @@
 import { getProjects } from '../data/portfolioData';
-import { FiGithub, FiFolder } from 'react-icons/fi';
+import { FiGithub, FiFolder, FiExternalLink } from 'react-icons/fi';
 import { useState } from 'react';
 import SectionHeader from '../components/SectionHeader';
 
@@ -9,21 +9,28 @@ const ProjectsPage = () => {
 
     const filteredProjects = filter === 'all'
         ? projects
-        : projects.filter(p => p.tech_stack.includes(filter));
+        : projects.filter(p => p.tech_stack.some(t => t.toLowerCase().includes(filter.toLowerCase()) || filter.toLowerCase().includes(t.toLowerCase())));
 
     const getTechColor = (tech: string): string => {
         const colors: Record<string, string> = {
             'Java 17': 'tag-red',
             'Spring Boot 3.2': 'tag-green',
+            'Spring Boot 3.3': 'tag-green',
+            'Spring Boot': 'tag-green',
             'Spring Security': 'tag-blue',
+            'Spring Data JPA': 'tag-blue',
             'Apache Kafka': 'tag-yellow',
             'Django': 'tag-green',
             'React': 'tag-blue',
+            'React 19': 'tag-blue',
             'Python': 'tag-yellow',
             'JavaScript': 'tag-yellow',
             'TypeScript': 'tag-blue',
             'PostgreSQL': 'tag-blue',
             'Redis': 'tag-red',
+            'Cloudinary': 'tag-green',
+            'Vite': 'tag-purple',
+            'REST APIs': 'tag-yellow',
             'Next.js': 'bg-surface-container text-text-primary border border-outline',
             'NestJS': 'tag-red',
             'Node.js': 'tag-green',
@@ -65,10 +72,10 @@ const ProjectsPage = () => {
                     </button>
                     {[
                         { name: 'Java 17', color: 'red' },
-                        { name: 'Spring Boot 3.2', color: 'green' },
-                        { name: 'Django', color: 'blue' },
-                        { name: 'React', color: 'yellow' },
-                        { name: 'PostgreSQL', color: 'purple' }
+                        { name: 'Spring Boot', color: 'green' },
+                        { name: 'React', color: 'blue' },
+                        { name: 'PostgreSQL', color: 'purple' },
+                        { name: 'Django', color: 'yellow' }
                     ].map((tech) => (
                         <button
                             key={tech.name}
@@ -120,17 +127,31 @@ const ProjectsPage = () => {
                                     ))}
                                 </div>
 
-                                {(project.github || project.github_ref) && (
-                                    <div className="pt-4 border-t border-outline">
-                                        <a
-                                            href={project.github || project.github_ref}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="inline-flex items-center gap-2 text-text-secondary hover:text-g-blue transition-colors duration-200 font-medium text-sm"
-                                        >
-                                            <FiGithub size={18} />
-                                            View Code
-                                        </a>
+                                {(project.github || project.github_ref || project.live) && (
+                                    <div className="pt-4 border-t border-outline flex items-center justify-between gap-4 flex-wrap">
+                                        {(project.github || project.github_ref) ? (
+                                            <a
+                                                href={project.github || project.github_ref}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="inline-flex items-center gap-2 text-text-secondary hover:text-g-blue transition-colors duration-200 font-medium text-sm"
+                                            >
+                                                <FiGithub size={18} />
+                                                View Code
+                                            </a>
+                                        ) : <div />}
+
+                                        {project.live && (
+                                            <a
+                                                href={project.live}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="inline-flex items-center gap-2 text-g-blue hover:text-blue-700 font-semibold text-sm transition-colors duration-200"
+                                            >
+                                                <FiExternalLink size={18} />
+                                                Live Demo
+                                            </a>
+                                        )}
                                     </div>
                                 )}
                             </div>

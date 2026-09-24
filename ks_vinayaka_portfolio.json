@@ -54,6 +54,23 @@
   ],
   "projects": [
     {
+      "title": "ParcelPulse | Verified Advertising & Tracking Platform on Delivery Packages",
+      "description": "Engineered a full-stack ad-tech and logistics platform transforming delivery packages into measurable, verifiable advertising inventory. Architected a 3-layer verification pipeline combining photographic evidence hashing, GPS coordinates, and timestamp consistency checks to cryptographically audit physical ad placement across delivery lifecycles. Built multi-role portals for Advertisers (campaign creation, budget management, real-time ROI/reach analytics), Field Agents (sticker batch distribution), Delivery Riders (photo & GPS proof submission, reward & milestone tracking), and Admins (automated fraud detection engine with manual audit queue). Developed with Spring Boot 3.3 REST APIs, PostgreSQL database, Cloudinary media storage, and an interactive React 19 frontend.",
+      "tech_stack": [
+        "Java 17",
+        "Spring Boot 3.3",
+        "PostgreSQL",
+        "React 19",
+        "TypeScript",
+        "REST APIs",
+        "Cloudinary",
+        "Vite"
+      ],
+      "github": "https://github.com/vikram583135/ParcelPulse",
+      "live": "https://parcel-pulse-phi.vercel.app/",
+      "source": "live project & github"
+    },
+    {
       "title": "CloudSentry | AI-Powered DevOps Incident & Cost Optimization Platform",
       "description": "Architected production-grade observability platform combining features of Datadog + PagerDuty + AWS Cost Explorer. Built real-time metrics ingestion via Kafka streams tracking CPU, memory, latency, and error rates. Implemented anomaly detection engine with statistical + rule-based analysis and predictive insights. Developed automated incident management with intelligent severity calculation and lifecycle tracking. Engineered AI Root Cause Analysis module using configurable rule engine with optional LLM integration. Built cloud cost analyzer with AWS SDK v2 for cost tracking, utilization monitoring, and optimization recommendations. Designed multi-channel notification engine (Email, Slack, Webhook) with deduplication and escalation policies. Implemented JWT authentication + RBAC with role-based dashboards for Admin, SRE, Developer, and Manager. Used Spring Data JPA, Redis caching, and Kafka consumers with Docker Compose for infrastructure.",
       "tech_stack": [

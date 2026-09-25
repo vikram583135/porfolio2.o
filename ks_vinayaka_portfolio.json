@@ -68,6 +68,7 @@
       ],
       "github": "https://github.com/vikram583135/ParcelPulse",
       "live": "https://parcel-pulse-phi.vercel.app/",
+      "video": "https://lnkd.in/p/d3XRsYM8",
       "source": "live project & github"
     },
     {
@@ -114,7 +115,14 @@
       "source": "resume (uploaded PDF)"
     }
   ],
-  "blog_posts": [],
+  "blog_posts": [
+    {
+      "title": "ParcelPulse: Turning Delivery Packages into a New Advertising Opportunity",
+      "excerpt": "As an MCA graduate and part-time Zomato delivery partner, I asked: What if millions of delivery packages moving through cities could become a measurable advertising medium?",
+      "date": "February 2025",
+      "url": "/blog"
+    }
+  ],
   "contact": {
     "email": "vikram583135@gmail.com",
     "phone": "+91 9606578966",

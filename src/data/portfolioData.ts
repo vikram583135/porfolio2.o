@@ -25,6 +25,7 @@ export interface Project {
     github?: string;
     github_ref?: string;
     live?: string;
+    video?: string;
 }
 
 export interface Contact {

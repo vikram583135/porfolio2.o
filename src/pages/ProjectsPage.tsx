@@ -1,5 +1,5 @@
 import { getProjects } from '../data/portfolioData';
-import { FiGithub, FiFolder, FiExternalLink } from 'react-icons/fi';
+import { FiGithub, FiFolder, FiExternalLink, FiVideo } from 'react-icons/fi';
 import { useState } from 'react';
 import SectionHeader from '../components/SectionHeader';
 
@@ -127,19 +127,32 @@ const ProjectsPage = () => {
                                     ))}
                                 </div>
 
-                                {(project.github || project.github_ref || project.live) && (
-                                    <div className="pt-4 border-t border-outline flex items-center justify-between gap-4 flex-wrap">
-                                        {(project.github || project.github_ref) ? (
-                                            <a
-                                                href={project.github || project.github_ref}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                className="inline-flex items-center gap-2 text-text-secondary hover:text-g-blue transition-colors duration-200 font-medium text-sm"
-                                            >
-                                                <FiGithub size={18} />
-                                                View Code
-                                            </a>
-                                        ) : <div />}
+                                {(project.github || project.github_ref || project.live || project.video) && (
+                                    <div className="pt-4 border-t border-outline flex items-center justify-between gap-3 flex-wrap">
+                                        <div className="flex items-center gap-4 flex-wrap">
+                                            {(project.github || project.github_ref) && (
+                                                <a
+                                                    href={project.github || project.github_ref}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className="inline-flex items-center gap-2 text-text-secondary hover:text-g-blue transition-colors duration-200 font-medium text-sm"
+                                                >
+                                                    <FiGithub size={18} />
+                                                    View Code
+                                                </a>
+                                            )}
+                                            {project.video && (
+                                                <a
+                                                    href={project.video}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className="inline-flex items-center gap-2 text-g-red hover:text-red-700 font-medium text-sm transition-colors duration-200"
+                                                >
+                                                    <FiVideo size={18} />
+                                                    Watch Video
+                                                </a>
+                                            )}
+                                        </div>
 
                                         {project.live && (
                                             <a

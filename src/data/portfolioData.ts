@@ -20,6 +20,7 @@ export interface Education {
 export interface Project {
     title: string;
     description: string;
+    highlights?: string[];
     tech_stack: string[];
     source: string;
     github?: string;
@@ -43,9 +44,24 @@ export interface BlogPost {
     url: string;
 }
 
+export interface Experience {
+    role: string;
+    company: string;
+    location: string;
+    highlights: string[];
+}
+
+export interface Achievement {
+    title: string;
+    organization: string;
+    description: string;
+}
+
 export interface PortfolioData {
     personal: Personal;
     summary: string;
+    experience?: Experience[];
+    achievements?: Achievement[];
     skills: string[];
     education: Education[];
     certifications: string[];
@@ -62,9 +78,12 @@ export const portfolioData: PortfolioData = portfolioJson as PortfolioData;
 // Helper functions
 export const getPersonal = (): Personal => portfolioData.personal;
 export const getSummary = (): string => portfolioData.summary;
+export const getExperience = (): Experience[] => portfolioData.experience || [];
+export const getAchievements = (): Achievement[] => portfolioData.achievements || [];
 export const getSkills = (): string[] => portfolioData.skills;
 export const getEducation = (): Education[] => portfolioData.education;
 export const getCertifications = (): string[] => portfolioData.certifications;
 export const getProjects = (): Project[] => portfolioData.projects;
 export const getBlogPosts = (): BlogPost[] => portfolioData.blog_posts;
 export const getContact = (): Contact => portfolioData.contact;
+

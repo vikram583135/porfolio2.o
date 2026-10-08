@@ -1,5 +1,5 @@
 import { getPersonal, getSummary, getSkills } from '../data/portfolioData';
-import { FiGithub, FiLinkedin, FiMail, FiArrowRight, FiDownload } from 'react-icons/fi';
+import { FiGithub, FiLinkedin, FiMail, FiArrowRight, FiDownload, FiEye, FiFileText } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 import profileImage from '../assets/profile.png';
 import resumePdf from '../assets/resume.pdf';
@@ -45,22 +45,27 @@ const HomePage = () => {
                         </div>
 
                         {/* CTA Buttons */}
-                        <div className="flex flex-wrap gap-4">
+                        <div className="flex flex-wrap gap-3 sm:gap-4">
                             <Link to="/projects" className="btn-blue flex items-center gap-2 group">
                                 View Projects
                                 <FiArrowRight className="group-hover:translate-x-1 transition-transform duration-200" />
                             </Link>
-                            <Link to="/contact" className="btn-outline-green">
-                                Contact Me
+                            <Link to="/resume" className="btn-outline-blue flex items-center gap-2 group font-semibold shadow-goog-1 hover:shadow-goog-2">
+                                <FiEye size={18} className="text-g-blue" />
+                                View Resume
                             </Link>
                             <a
                                 href={resumePdf}
                                 download="KS_Vinayaka_Resume.pdf"
-                                className="btn-red flex items-center gap-2 group"
+                                className="btn-red flex items-center gap-2 group shadow-goog-1 hover:shadow-goog-2"
+                                title="Download PDF Resume"
                             >
                                 <FiDownload className="group-hover:translate-y-0.5 transition-transform duration-200" />
-                                Download Resume
+                                Download CV
                             </a>
+                            <Link to="/contact" className="btn-outline-green">
+                                Contact Me
+                            </Link>
                         </div>
 
                         {/* Social Links */}
@@ -147,6 +152,43 @@ const HomePage = () => {
                                 </span>
                             );
                         })}
+                    </div>
+                </div>
+            </section>
+
+            {/* Resume & Credentials Feature Banner */}
+            <section className="py-16 px-6 md:px-12 bg-white">
+                <div className="max-w-6xl mx-auto">
+                    <div className="card-rainbow p-8 md:p-10 flex flex-col md:flex-row items-center justify-between gap-8">
+                        <div className="space-y-3 max-w-2xl">
+                            <div className="inline-flex items-center gap-2 px-3 py-1 bg-g-blue/10 text-g-blue rounded-full text-xs font-semibold">
+                                <FiFileText size={14} />
+                                <span>Official Curriculum Vitae</span>
+                            </div>
+                            <h2 className="text-2xl md:text-3xl font-bold text-text-primary">
+                                Complete Resume & Experience Record
+                            </h2>
+                            <p className="text-text-secondary text-sm md:text-base leading-relaxed">
+                                Detailed background covering production Spring Boot microservices, Kafka streaming pipelines, AWS architecture, 6 delivered client projects as Founder, and formal qualifications.
+                            </p>
+                        </div>
+                        <div className="flex flex-col sm:flex-row items-center gap-4 w-full md:w-auto">
+                            <Link
+                                to="/resume"
+                                className="btn-blue flex items-center justify-center gap-2 w-full sm:w-auto text-sm font-semibold shadow-goog-2 hover:shadow-goog-3 transition-all"
+                            >
+                                <FiEye size={16} />
+                                <span>View Online Resume</span>
+                            </Link>
+                            <a
+                                href={resumePdf}
+                                download="KS_Vinayaka_Resume.pdf"
+                                className="btn-outline-blue flex items-center justify-center gap-2 w-full sm:w-auto text-sm font-semibold hover:bg-surface-hover transition-all"
+                            >
+                                <FiDownload size={16} />
+                                <span>Download PDF</span>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </section>

@@ -1,7 +1,9 @@
 import { getContact } from '../data/portfolioData';
-import { FiMail, FiMapPin, FiGithub, FiLinkedin, FiSend } from 'react-icons/fi';
+import { FiMail, FiMapPin, FiGithub, FiLinkedin, FiSend, FiEye, FiDownload } from 'react-icons/fi';
 import { useState, FormEvent } from 'react';
+import { Link } from 'react-router-dom';
 import SectionHeader from '../components/SectionHeader';
+import resumePdf from '../assets/resume.pdf';
 
 const ContactPage = () => {
     const contact = getContact();
@@ -214,6 +216,15 @@ const ContactPage = () => {
                                 I'm currently open to full-time positions and interesting freelance projects.
                                 Let's build something amazing together!
                             </p>
+                            <div className="pt-4 flex flex-wrap items-center gap-3 border-t border-outline/50 mt-4">
+                                <Link to="/resume" className="text-xs font-semibold text-g-blue hover:underline flex items-center gap-1.5">
+                                    <FiEye size={14} /> View Complete CV
+                                </Link>
+                                <span className="text-outline">|</span>
+                                <a href={resumePdf} download="KS_Vinayaka_Resume.pdf" className="text-xs font-semibold text-g-red hover:underline flex items-center gap-1.5">
+                                    <FiDownload size={14} /> Download PDF
+                                </a>
+                            </div>
                         </div>
                     </div>
 

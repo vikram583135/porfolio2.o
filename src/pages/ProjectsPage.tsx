@@ -1,7 +1,9 @@
 import { getProjects } from '../data/portfolioData';
-import { FiGithub, FiFolder, FiExternalLink, FiVideo } from 'react-icons/fi';
+import { FiGithub, FiFolder, FiExternalLink, FiVideo, FiEye, FiDownload } from 'react-icons/fi';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import SectionHeader from '../components/SectionHeader';
+import resumePdf from '../assets/resume.pdf';
 
 const ProjectsPage = () => {
     const projects = getProjects();
@@ -57,6 +59,26 @@ const ProjectsPage = () => {
                     title="My Projects"
                     subtitle="A collection of projects showcasing my skills in Java and backend development"
                 />
+
+                {/* Resume Banner Callout */}
+                <div className="flex flex-wrap items-center justify-between gap-4 p-4 bg-surface-alt border border-outline rounded-goog-lg">
+                    <div className="flex items-center gap-3">
+                        <span className="p-2 bg-g-blue/10 text-g-blue rounded-goog">
+                            <FiFolder size={20} />
+                        </span>
+                        <p className="text-sm text-text-secondary">
+                            Looking for full architecture specs, verification pipeline details, and official credentials?
+                        </p>
+                    </div>
+                    <div className="flex items-center gap-3">
+                        <Link to="/resume" className="btn-outline-blue text-xs py-2 px-3.5 flex items-center gap-1.5 font-semibold">
+                            <FiEye size={14} /> View Complete CV
+                        </Link>
+                        <a href={resumePdf} download="KS_Vinayaka_Resume.pdf" className="btn-blue text-xs py-2 px-3.5 flex items-center gap-1.5 font-semibold">
+                            <FiDownload size={14} /> Download PDF
+                        </a>
+                    </div>
+                </div>
 
                 {/* Filter Pills */}
                 <div className="flex flex-wrap justify-center gap-3 p-6 section-blue rounded-goog-xl">

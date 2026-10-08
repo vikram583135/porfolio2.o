@@ -427,6 +427,46 @@ body {
     background: #E6F4EA;
 }
 
+.btn-red {
+    background: #EA4335;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: 0.25px;
+    transition: all 0.2s ease;
+    box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+    border: none;
+    cursor: pointer;
+}
+
+.btn-red:hover {
+    background: #D93025;
+    box-shadow: 0 1px 3px 0 rgba(60, 64, 67, 0.3), 0 4px 8px 3px rgba(60, 64, 67, 0.15);
+}
+
+.btn-red:active {
+    background: #B3261E;
+}
+
+.btn-outline-red {
+    background: transparent;
+    color: #EA4335;
+    padding: 12px 24px;
+    border: 2px solid #EA4335;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: 0.25px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.btn-outline-red:hover {
+    background: #FCE8E6;
+}
+
 /* ========================================
    GOOGLE INPUT STYLES
    ======================================== */

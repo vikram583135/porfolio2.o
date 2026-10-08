@@ -1,5 +1,6 @@
-import { getSummary, getSkills, getEducation, getCertifications } from '../data/portfolioData';
-import { FiAward, FiBookOpen, FiCode, FiDownload } from 'react-icons/fi';
+import { getSummary, getSkills, getEducation, getCertifications, getExperience } from '../data/portfolioData';
+import { FiAward, FiBookOpen, FiCode, FiDownload, FiEye, FiBriefcase } from 'react-icons/fi';
+import { Link } from 'react-router-dom';
 import SectionHeader from '../components/SectionHeader';
 import resumePdf from '../assets/resume.pdf';
 
@@ -8,6 +9,7 @@ const AboutPage = () => {
     const skills = getSkills();
     const education = getEducation();
     const certifications = getCertifications();
+    const experience = getExperience();
 
     const skillCategories = {
         'Languages': { skills: ['Java 17', 'Python', 'TypeScript', 'SQL'], color: 'blue' },
@@ -58,15 +60,22 @@ const AboutPage = () => {
                     subtitle="Passionate about building scalable systems and beautiful user experiences"
                 />
 
-                {/* Download Resume Button */}
-                <div className="flex justify-center animate-fadeIn">
+                {/* Resume Action Buttons */}
+                <div className="flex flex-wrap items-center justify-center gap-4 animate-fadeIn">
+                    <Link
+                        to="/resume"
+                        className="btn-blue flex items-center gap-3 px-7 py-3.5 text-base font-semibold group shadow-goog-2 hover:shadow-goog-3 transition-all duration-300"
+                    >
+                        <FiEye size={20} className="group-hover:scale-110 transition-transform duration-200" />
+                        <span>View Online Resume</span>
+                    </Link>
                     <a
                         href={resumePdf}
                         download="KS_Vinayaka_Resume.pdf"
-                        className="btn-red flex items-center gap-3 px-8 py-4 text-lg group shadow-goog-2 hover:shadow-goog-3 transition-all duration-300"
+                        className="btn-red flex items-center gap-3 px-7 py-3.5 text-base font-semibold group shadow-goog-2 hover:shadow-goog-3 transition-all duration-300"
                     >
-                        <FiDownload size={24} className="group-hover:translate-y-0.5 transition-transform duration-200" />
-                        Download My Resume
+                        <FiDownload size={20} className="group-hover:translate-y-0.5 transition-transform duration-200" />
+                        <span>Download PDF Resume</span>
                     </a>
                 </div>
 
@@ -85,6 +94,46 @@ const AboutPage = () => {
                         </div>
                     </div>
                 </section>
+
+                {/* Professional Experience Section */}
+                {experience.length > 0 && (
+                    <section className="space-y-6 animate-fadeIn">
+                        <div>
+                            <h2 className="text-2xl font-bold text-text-primary flex items-center gap-3">
+                                <span className="w-10 h-10 bg-g-blue rounded-goog flex items-center justify-center text-white">
+                                    <FiBriefcase size={20} />
+                                </span>
+                                Professional Experience
+                            </h2>
+                            <div className="w-24 h-1 mt-3 bg-gradient-to-r from-g-blue to-g-green rounded-full"></div>
+                        </div>
+
+                        <div className="space-y-4">
+                            {experience.map((exp, idx) => (
+                                <div key={idx} className="card-blue p-6 md:p-8 space-y-4">
+                                    <div className="flex flex-wrap items-center justify-between gap-2">
+                                        <div>
+                                            <h3 className="text-xl font-bold text-text-primary">
+                                                {exp.role} <span className="text-text-secondary font-normal">|</span> {exp.company}
+                                            </h3>
+                                            <p className="text-sm text-text-secondary mt-0.5">{exp.location}</p>
+                                        </div>
+                                        <span className="px-4 py-1.5 tag-blue rounded-full text-xs font-semibold">
+                                            Client Solutions & Consulting
+                                        </span>
+                                    </div>
+                                    <ul className="space-y-2 text-sm text-text-secondary list-disc list-inside">
+                                        {exp.highlights.map((h, hIdx) => (
+                                            <li key={hIdx} className="leading-relaxed">
+                                                {h}
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+                            ))}
+                        </div>
+                    </section>
+                )}
 
                 {/* Skills Section */}
                 <section className="space-y-8 section-green rounded-goog-xl p-8">

@@ -1,10 +1,11 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import ProjectsPage from './pages/ProjectsPage';
 import BlogPage from './pages/BlogPage';
 import ContactPage from './pages/ContactPage';
+import ResumePage from './pages/ResumePage';
 
 function App() {
   return (
@@ -24,6 +25,8 @@ function App() {
               <Route path="/" element={<HomePage />} />
               <Route path="/about" element={<AboutPage />} />
               <Route path="/projects" element={<ProjectsPage />} />
+              <Route path="/resume" element={<ResumePage />} />
+              <Route path="/cv" element={<ResumePage />} />
               <Route path="/blog" element={<BlogPage />} />
               <Route path="/contact" element={<ContactPage />} />
             </Routes>
@@ -32,8 +35,19 @@ function App() {
 
         {/* Footer */}
         <footer className="relative z-10 py-8 px-6 bg-surface-alt border-t border-outline">
-          <div className="max-w-6xl mx-auto text-center">
-            <p className="text-text-secondary text-sm">
+          <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+            <div className="flex flex-wrap justify-center sm:justify-start items-center gap-6 text-sm text-text-secondary">
+              <Link to="/" className="hover:text-g-blue transition-colors">Home</Link>
+              <Link to="/about" className="hover:text-g-blue transition-colors">About</Link>
+              <Link to="/projects" className="hover:text-g-blue transition-colors">Projects</Link>
+              <Link to="/resume" className="text-g-blue font-semibold hover:underline flex items-center gap-1">
+                <span>Resume</span>
+                <span className="w-1.5 h-1.5 rounded-full bg-g-blue"></span>
+              </Link>
+              <Link to="/blog" className="hover:text-g-blue transition-colors">Blog</Link>
+              <Link to="/contact" className="hover:text-g-blue transition-colors">Contact</Link>
+            </div>
+            <p className="text-text-secondary text-xs sm:text-sm">
               © {new Date().getFullYear()} <span className="font-semibold text-text-primary">K S Vinayaka</span> • Built with React & TailwindCSS
             </p>
           </div>

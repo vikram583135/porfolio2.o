@@ -6,12 +6,14 @@ import ProjectsPage from './pages/ProjectsPage';
 import BlogPage from './pages/BlogPage';
 import ContactPage from './pages/ContactPage';
 import ResumePage from './pages/ResumePage';
+import AIChatbot from './components/AIChatbot';
 
 function App() {
   return (
     <BrowserRouter>
       <div className="min-h-screen bg-white text-text-primary">
         <Navbar />
+        <AIChatbot />
         <main className="relative">
           {/* Subtle Google-style background accents */}
           <div className="fixed inset-0 overflow-hidden pointer-events-none">

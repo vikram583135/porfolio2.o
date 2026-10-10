@@ -39,8 +39,12 @@ const ResumePage = () => {
     const projects = getProjects();
     const experience = getExperience();
     const achievements = getAchievements();
-
-    const [activeTab, setActiveTab] = useState<'pdf' | 'web'>('pdf');
+    const [activeTab, setActiveTab] = useState<'pdf' | 'web'>(() => {
+        if (typeof window !== 'undefined' && window.innerWidth < 640) {
+            return 'web';
+        }
+        return 'pdf';
+    });
     const [copied, setCopied] = useState(false);
 
     const handleCopyLink = () => {
@@ -625,6 +629,26 @@ const ResumePage = () => {
                     </div>
                 </div>
 
+            </div>
+
+            {/* FLOATING MOBILE DOWNLOAD PILL */}
+            <div className="sm:hidden fixed bottom-4 left-4 right-4 z-30 bg-white/95 backdrop-blur-md p-2 rounded-2xl border border-outline shadow-goog-4 flex items-center justify-between gap-2 animate-fadeIn">
+                <a
+                    href={resumePdf}
+                    download="KS_Vinayaka_Resume.pdf"
+                    className="btn-blue flex-1 py-2.5 px-3 text-xs font-semibold flex items-center justify-center gap-1.5 shadow-sm text-center"
+                >
+                    <FiDownload size={14} /> <span>Download PDF (17 KB)</span>
+                </a>
+                <a
+                    href={resumePdf}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-outline-blue py-2.5 px-3 text-xs font-semibold flex items-center justify-center gap-1 text-center"
+                    title="Open in new tab"
+                >
+                    <FiExternalLink size={14} />
+                </a>
             </div>
         </div>
     );

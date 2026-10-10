@@ -107,9 +107,7 @@ export const CuteRobot: React.FC<CuteRobotProps> = ({
       >
         <svg
           viewBox="0 0 84 100"
-          width="76"
-          height="92"
-          className="overflow-visible filter drop-shadow(0 8px 16px rgba(66, 133, 244, 0.2))"
+          className="w-16 h-20 sm:w-[76px] sm:h-[92px] overflow-visible filter drop-shadow(0 8px 16px rgba(66, 133, 244, 0.2))"
         >
           <defs>
             {/* Glossy ceramic gradient for head and body */}

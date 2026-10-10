@@ -51,8 +51,8 @@ const ProjectsPage = () => {
     };
 
     return (
-        <div className="min-h-screen py-12 px-6 md:px-12">
-            <div className="max-w-6xl mx-auto space-y-12">
+        <div className="min-h-screen py-8 sm:py-12 px-4 sm:px-6 md:px-12">
+            <div className="max-w-6xl mx-auto space-y-8 sm:space-y-12">
 
                 {/* Page Header */}
                 <SectionHeader
@@ -61,30 +61,30 @@ const ProjectsPage = () => {
                 />
 
                 {/* Resume Banner Callout */}
-                <div className="flex flex-wrap items-center justify-between gap-4 p-4 bg-surface-alt border border-outline rounded-goog-lg">
+                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 p-4 bg-surface-alt border border-outline rounded-goog-lg">
                     <div className="flex items-center gap-3">
-                        <span className="p-2 bg-g-blue/10 text-g-blue rounded-goog">
+                        <span className="p-2 bg-g-blue/10 text-g-blue rounded-goog flex-shrink-0">
                             <FiFolder size={20} />
                         </span>
-                        <p className="text-sm text-text-secondary">
+                        <p className="text-xs sm:text-sm text-text-secondary">
                             Looking for full architecture specs, verification pipeline details, and official credentials?
                         </p>
                     </div>
-                    <div className="flex items-center gap-3">
-                        <Link to="/resume" className="btn-outline-blue text-xs py-2 px-3.5 flex items-center gap-1.5 font-semibold">
-                            <FiEye size={14} /> View Complete CV
+                    <div className="flex items-center gap-2.5 w-full sm:w-auto">
+                        <Link to="/resume" className="btn-outline-blue text-xs py-2 px-3 flex-1 sm:flex-initial flex items-center justify-center gap-1.5 font-semibold text-center">
+                            <FiEye size={14} /> <span>View CV</span>
                         </Link>
-                        <a href={resumePdf} download="KS_Vinayaka_Resume.pdf" className="btn-blue text-xs py-2 px-3.5 flex items-center gap-1.5 font-semibold">
-                            <FiDownload size={14} /> Download PDF
+                        <a href={resumePdf} download="KS_Vinayaka_Resume.pdf" className="btn-blue text-xs py-2 px-3 flex-1 sm:flex-initial flex items-center justify-center gap-1.5 font-semibold text-center">
+                            <FiDownload size={14} /> <span>PDF</span>
                         </a>
                     </div>
                 </div>
 
-                {/* Filter Pills */}
-                <div className="flex flex-wrap justify-center gap-3 p-6 section-blue rounded-goog-xl">
+                {/* Filter Pills - Swipable on mobile */}
+                <div className="flex items-center gap-2 sm:gap-3 p-3 sm:p-6 section-blue rounded-goog-xl overflow-x-auto no-scrollbar sm:flex-wrap sm:justify-center">
                     <button
                         onClick={() => setFilter('all')}
-                        className={`px-5 py-2.5 rounded-goog-full text-sm font-medium transition-all duration-200
+                        className={`px-4 sm:px-5 py-2 sm:py-2.5 rounded-goog-full text-xs sm:text-sm font-medium transition-all duration-200 whitespace-nowrap flex-shrink-0
                       ${filter === 'all'
                                 ? 'bg-g-blue text-white shadow-goog-1'
                                 : 'bg-white text-text-secondary hover:bg-surface-hover border border-outline'
@@ -102,7 +102,7 @@ const ProjectsPage = () => {
                         <button
                             key={tech.name}
                             onClick={() => setFilter(tech.name)}
-                            className={`px-5 py-2.5 rounded-goog-full text-sm font-medium transition-all duration-200
+                            className={`px-4 sm:px-5 py-2 sm:py-2.5 rounded-goog-full text-xs sm:text-sm font-medium transition-all duration-200 whitespace-nowrap flex-shrink-0
                         ${filter === tech.name
                                     ? 'bg-g-blue text-white shadow-goog-1'
                                     : 'bg-white text-text-secondary hover:bg-surface-hover border border-outline'

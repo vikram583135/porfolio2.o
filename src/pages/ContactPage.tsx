@@ -50,8 +50,8 @@ const ContactPage = () => {
     };
 
     return (
-        <div className="min-h-screen py-12 px-6 md:px-12">
-            <div className="max-w-6xl mx-auto space-y-12">
+        <div className="min-h-screen py-8 sm:py-12 px-4 sm:px-6 md:px-12">
+            <div className="max-w-6xl mx-auto space-y-8 sm:space-y-12">
 
                 {/* Page Header */}
                 <SectionHeader
@@ -59,10 +59,10 @@ const ContactPage = () => {
                     subtitle="Have a project in mind or want to collaborate? I'd love to hear from you!"
                 />
 
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12">
 
                     {/* Contact Form */}
-                    <div className="p-8 section-blue rounded-goog-xl">
+                    <div className="p-5 sm:p-8 section-blue rounded-goog-xl">
                         <h2 className="text-2xl font-bold text-text-primary mb-3 flex items-center gap-2">
                             <span className="w-10 h-10 bg-g-blue rounded-goog flex items-center justify-center text-white">✉️</span>
                             Send a Message

@@ -12,94 +12,97 @@ const HomePage = () => {
     return (
         <div className="min-h-screen">
             {/* Hero Section - Google Partners Style */}
-            <section className="relative py-20 px-6 md:px-12 overflow-hidden bg-gradient-to-br from-white via-surface-alt to-white">
+            <section className="relative py-10 sm:py-16 md:py-20 px-4 sm:px-6 md:px-12 overflow-hidden bg-gradient-to-br from-white via-surface-alt to-white">
                 {/* Subtle Background Elements */}
-                <div className="absolute inset-0 overflow-hidden">
-                    <div className="absolute top-20 left-10 w-72 h-72 bg-g-blue/10 rounded-full blur-3xl"></div>
-                    <div className="absolute bottom-20 right-10 w-96 h-96 bg-g-green/10 rounded-full blur-3xl"></div>
-                    <div className="absolute top-1/2 right-1/4 w-64 h-64 bg-g-yellow/10 rounded-full blur-3xl"></div>
+                <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                    <div className="absolute top-12 left-4 sm:left-10 w-48 sm:w-72 h-48 sm:h-72 bg-g-blue/10 rounded-full blur-3xl"></div>
+                    <div className="absolute bottom-12 right-4 sm:right-10 w-56 sm:w-96 h-56 sm:h-96 bg-g-green/10 rounded-full blur-3xl"></div>
+                    <div className="absolute top-1/2 right-1/4 w-40 sm:w-64 h-40 sm:h-64 bg-g-yellow/10 rounded-full blur-3xl"></div>
                 </div>
 
-                <div className="relative z-10 max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div className="relative z-10 max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center">
                     {/* Left Content */}
-                    <div className="space-y-8 animate-fadeIn">
-                        <div className="space-y-4">
-                            <h1 className="text-5xl md:text-6xl font-bold leading-tight">
+                    <div className="space-y-6 sm:space-y-8 animate-fadeIn text-center lg:text-left">
+                        <div className="space-y-3 sm:space-y-4">
+                            <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold leading-tight">
                                 <span className="text-text-primary">Hi, I'm</span>
                                 <br />
                                 <span className="gradient-text">{personal.name}</span>
                             </h1>
 
                             {/* Google-style underline */}
-                            <div className="w-32 h-1 divider-google"></div>
+                            <div className="w-28 sm:w-32 h-1 divider-google mx-auto lg:mx-0"></div>
 
-                            <p className="text-xl text-text-secondary font-medium">
+                            <p className="text-lg sm:text-xl text-text-secondary font-medium">
                                 {personal.title}
                             </p>
                         </div>
 
-                        <div className="card-elevated p-6">
-                            <p className="text-text-secondary leading-relaxed">
+                        <div className="card-elevated p-4 sm:p-6 text-left">
+                            <p className="text-text-secondary text-sm sm:text-base leading-relaxed">
                                 {summary}
                             </p>
                         </div>
 
-                        {/* CTA Buttons */}
-                        <div className="flex flex-wrap gap-3 sm:gap-4">
-                            <Link to="/projects" className="btn-blue flex items-center gap-2 group">
-                                View Projects
+                        {/* CTA Buttons - 2x2 grid on phone, flex on tablet/desktop */}
+                        <div className="grid grid-cols-2 sm:flex sm:flex-wrap gap-2.5 sm:gap-3.5 text-xs sm:text-sm">
+                            <Link to="/projects" className="btn-blue flex items-center justify-center gap-1.5 sm:gap-2 group py-2.5 px-3 sm:px-4 text-center">
+                                <span>Projects</span>
                                 <FiArrowRight className="group-hover:translate-x-1 transition-transform duration-200" />
                             </Link>
-                            <Link to="/resume" className="btn-outline-blue flex items-center gap-2 group font-semibold shadow-goog-1 hover:shadow-goog-2">
-                                <FiEye size={18} className="text-g-blue" />
-                                View Resume
+                            <Link to="/resume" className="btn-outline-blue flex items-center justify-center gap-1.5 sm:gap-2 group font-semibold shadow-goog-1 hover:shadow-goog-2 py-2.5 px-3 sm:px-4 text-center">
+                                <FiEye size={16} className="text-g-blue" />
+                                <span>Resume</span>
                             </Link>
                             <a
                                 href={resumePdf}
                                 download="KS_Vinayaka_Resume.pdf"
-                                className="btn-red flex items-center gap-2 group shadow-goog-1 hover:shadow-goog-2"
+                                className="btn-red flex items-center justify-center gap-1.5 sm:gap-2 group shadow-goog-1 hover:shadow-goog-2 py-2.5 px-3 sm:px-4 text-center"
                                 title="Download PDF Resume"
                             >
                                 <FiDownload className="group-hover:translate-y-0.5 transition-transform duration-200" />
-                                Download CV
+                                <span>Download CV</span>
                             </a>
-                            <Link to="/contact" className="btn-outline-green">
-                                Contact Me
+                            <Link to="/contact" className="btn-outline-green flex items-center justify-center py-2.5 px-3 sm:px-4 text-center">
+                                <span>Contact</span>
                             </Link>
                         </div>
 
                         {/* Social Links */}
-                        <div className="flex items-center gap-4 pt-4">
+                        <div className="flex items-center justify-center lg:justify-start gap-3 sm:gap-4 pt-2">
                             <a
                                 href={personal.github}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="p-3 bg-white rounded-full shadow-goog-1 hover:shadow-goog-2 transition-all duration-200 text-text-secondary hover:text-g-blue"
+                                className="p-2.5 sm:p-3 bg-white rounded-full shadow-goog-1 hover:shadow-goog-2 transition-all duration-200 text-text-secondary hover:text-g-blue"
+                                aria-label="GitHub Profile"
                             >
-                                <FiGithub size={22} />
+                                <FiGithub size={20} />
                             </a>
                             <a
                                 href={personal.linkedin}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="p-3 bg-white rounded-full shadow-goog-1 hover:shadow-goog-2 transition-all duration-200 text-text-secondary hover:text-g-blue"
+                                className="p-2.5 sm:p-3 bg-white rounded-full shadow-goog-1 hover:shadow-goog-2 transition-all duration-200 text-text-secondary hover:text-g-blue"
+                                aria-label="LinkedIn Profile"
                             >
-                                <FiLinkedin size={22} />
+                                <FiLinkedin size={20} />
                             </a>
                             <a
                                 href={`mailto:${personal.email}`}
-                                className="p-3 bg-white rounded-full shadow-goog-1 hover:shadow-goog-2 transition-all duration-200 text-text-secondary hover:text-g-red"
+                                className="p-2.5 sm:p-3 bg-white rounded-full shadow-goog-1 hover:shadow-goog-2 transition-all duration-200 text-text-secondary hover:text-g-red"
+                                aria-label="Send Email"
                             >
-                                <FiMail size={22} />
+                                <FiMail size={20} />
                             </a>
                         </div>
                     </div>
 
-                    {/* Right Content - Profile Avatar */}
-                    <div className="relative flex justify-center items-center animate-fadeIn delay-200">
+                    {/* Right Content - Profile Avatar with fluid mobile scaling */}
+                    <div className="relative flex justify-center items-center animate-fadeIn delay-200 order-first lg:order-last">
                         <div className="relative">
                             {/* Profile Container with Image */}
-                            <div className="w-72 h-72 md:w-96 md:h-96 rounded-full bg-white shadow-goog-4 p-2 relative z-10 overflow-hidden">
+                            <div className="w-56 h-56 sm:w-72 sm:h-72 md:w-96 md:h-96 rounded-full bg-white shadow-goog-4 p-2 relative z-10 overflow-hidden">
                                 {/* Google-style gradient ring */}
                                 <div className="absolute inset-0 rounded-full bg-gradient-to-br from-g-blue via-g-green via-g-yellow to-g-red p-1">
                                     <div className="w-full h-full bg-white rounded-full"></div>
@@ -113,10 +116,10 @@ const HomePage = () => {
                                 />
                             </div>
 
-                            {/* Floating dots */}
-                            <div className="absolute -top-4 -right-4 w-8 h-8 bg-g-blue rounded-full animate-float shadow-goog-2"></div>
-                            <div className="absolute -bottom-4 -left-4 w-6 h-6 bg-g-green rounded-full animate-float delay-500 shadow-goog-2"></div>
-                            <div className="absolute top-1/2 -right-8 w-4 h-4 bg-g-yellow rounded-full animate-float delay-300 shadow-goog-1"></div>
+                            {/* Floating decorative dots */}
+                            <div className="absolute -top-3 -right-3 w-6 h-6 sm:w-8 sm:h-8 bg-g-blue rounded-full animate-float shadow-goog-2"></div>
+                            <div className="absolute -bottom-3 -left-3 w-5 h-5 sm:w-6 sm:h-6 bg-g-green rounded-full animate-float delay-500 shadow-goog-2"></div>
+                            <div className="absolute top-1/2 -right-6 w-3.5 h-3.5 sm:w-4 sm:h-4 bg-g-yellow rounded-full animate-float delay-300 shadow-goog-1"></div>
                         </div>
                     </div>
                 </div>

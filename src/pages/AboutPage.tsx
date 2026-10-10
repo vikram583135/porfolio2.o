@@ -51,8 +51,8 @@ const AboutPage = () => {
     };
 
     return (
-        <div className="min-h-screen py-12 px-6 md:px-12">
-            <div className="max-w-6xl mx-auto space-y-16">
+        <div className="min-h-screen py-8 sm:py-12 px-4 sm:px-6 md:px-12">
+            <div className="max-w-6xl mx-auto space-y-10 sm:space-y-16">
 
                 {/* Page Header */}
                 <SectionHeader
@@ -61,20 +61,20 @@ const AboutPage = () => {
                 />
 
                 {/* Resume Action Buttons */}
-                <div className="flex flex-wrap items-center justify-center gap-4 animate-fadeIn">
+                <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 animate-fadeIn">
                     <Link
                         to="/resume"
-                        className="btn-blue flex items-center gap-3 px-7 py-3.5 text-base font-semibold group shadow-goog-2 hover:shadow-goog-3 transition-all duration-300"
+                        className="btn-blue flex items-center justify-center gap-2.5 px-6 py-3 text-sm font-semibold group shadow-goog-2 hover:shadow-goog-3 transition-all duration-300 text-center"
                     >
-                        <FiEye size={20} className="group-hover:scale-110 transition-transform duration-200" />
+                        <FiEye size={18} className="group-hover:scale-110 transition-transform duration-200" />
                         <span>View Online Resume</span>
                     </Link>
                     <a
                         href={resumePdf}
                         download="KS_Vinayaka_Resume.pdf"
-                        className="btn-red flex items-center gap-3 px-7 py-3.5 text-base font-semibold group shadow-goog-2 hover:shadow-goog-3 transition-all duration-300"
+                        className="btn-red flex items-center justify-center gap-2.5 px-6 py-3 text-sm font-semibold group shadow-goog-2 hover:shadow-goog-3 transition-all duration-300 text-center"
                     >
-                        <FiDownload size={20} className="group-hover:translate-y-0.5 transition-transform duration-200" />
+                        <FiDownload size={18} className="group-hover:translate-y-0.5 transition-transform duration-200" />
                         <span>Download PDF Resume</span>
                     </a>
                 </div>

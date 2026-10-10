@@ -17,6 +17,7 @@
 
 html {
     scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
 }
 
 body {
@@ -24,8 +25,37 @@ body {
     background: #FFFFFF;
     color: #202124;
     min-height: 100vh;
+    min-height: 100dvh;
     overflow-x: hidden;
     line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    padding-top: env(safe-area-inset-top, 0px);
+}
+
+/* Mobile iOS Safari input auto-zoom prevention */
+@media (max-width: 640px) {
+    input, textarea, select {
+        font-size: 16px !important;
+    }
+}
+
+/* Safe area inset utilities */
+.pb-safe {
+    padding-bottom: max(1rem, env(safe-area-inset-bottom, 1rem));
+}
+
+.bottom-safe {
+    bottom: max(1rem, env(safe-area-inset-bottom, 1rem));
+}
+
+/* Touch friendly utility */
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+.no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 
 /* Custom Scrollbar - Google Style */

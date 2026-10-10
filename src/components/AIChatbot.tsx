@@ -473,8 +473,9 @@ export const AIChatbot: React.FC = () => {
         left: 0,
         right: 0,
         width: '100vw',
-        height: '84vh',
-        borderRadius: '20px 20px 0 0',
+        height: '85dvh',
+        maxHeight: '92dvh',
+        borderRadius: '24px 24px 0 0',
       };
     }
 
@@ -524,7 +525,7 @@ export const AIChatbot: React.FC = () => {
         }}
         onMouseDown={handleMouseDown}
         onTouchStart={handleTouchStart}
-        className="select-none"
+        className={`select-none ${isOpen ? 'hidden sm:block' : ''}`}
       >
         <CuteRobot
           isOpen={isOpen}
@@ -539,20 +540,32 @@ export const AIChatbot: React.FC = () => {
       </div>
 
       {/* =========================================================
-          CHAT MODAL / WINDOW
+          CHAT MODAL / WINDOW (BOTTOM SHEET ON MOBILE)
          ========================================================= */}
       {isOpen && (
-        <div
-          style={getWindowPositionStyles()}
-          className="fixed z-[9998] bg-white rounded-2xl shadow-goog-4 border border-outline flex flex-col overflow-hidden chatbot-window-enter"
-        >
-          {/* HEADER */}
-          <div className="px-4 py-3 bg-gradient-to-r from-blue-50 via-white to-surface-alt border-b border-outline flex items-center justify-between gap-2">
-            <div className="flex items-center gap-3 min-w-0">
-              <div className="relative flex-shrink-0">
-                <img
-                  src={profileImg}
-                  alt="Vinayaka AI"
+        <>
+          {/* Mobile backdrop */}
+          <div
+            className="sm:hidden fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-[9997] animate-fadeIn"
+            onClick={() => setIsOpen(false)}
+          />
+
+          <div
+            style={getWindowPositionStyles()}
+            className="fixed z-[9998] bg-white rounded-t-3xl sm:rounded-2xl shadow-goog-4 border border-outline flex flex-col overflow-hidden chatbot-window-enter"
+          >
+            {/* Mobile pull-down indicator handle */}
+            <div className="sm:hidden flex justify-center py-2 bg-gradient-to-r from-blue-50 via-white to-surface-alt border-b border-outline/30">
+              <div className="w-10 h-1 bg-slate-300 rounded-full" />
+            </div>
+
+            {/* HEADER */}
+            <div className="px-4 py-3 bg-gradient-to-r from-blue-50 via-white to-surface-alt border-b border-outline flex items-center justify-between gap-2">
+              <div className="flex items-center gap-3 min-w-0">
+                <div className="relative flex-shrink-0">
+                  <img
+                    src={profileImg}
+                    alt="Vinayaka AI"
                   className="w-10 h-10 rounded-full object-cover border-2 border-white shadow-sm"
                 />
                 <span className="absolute bottom-0 right-0 w-3 h-3 bg-g-green border-2 border-white rounded-full"></span>
@@ -805,9 +818,10 @@ export const AIChatbot: React.FC = () => {
             </button>
           </div>
         </div>
-      )}
-    </>
-  );
+      </>
+    )}
+  </>
+);
 };
 
 export default AIChatbot;

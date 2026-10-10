@@ -750,3 +750,218 @@ body {
     border-color: #AECBFA;
     transform: translateY(-1px);
 }
+
+/* ========================================
+   CUTE WALKING ROBOT ANIMATIONS
+   ======================================== */
+
+@keyframes robotShadowBounce {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 0.3;
+    }
+    50% {
+        transform: scale(0.85);
+        opacity: 0.15;
+    }
+}
+
+@keyframes robotBodyWalk {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-4.5px);
+    }
+}
+
+@keyframes robotBodyIdle {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-2.5px) rotate(0.6deg);
+    }
+}
+
+@keyframes robotLegWalkL {
+    0% {
+        transform: rotate(26deg);
+        transform-origin: 32px 65px;
+    }
+    50% {
+        transform: rotate(-24deg);
+        transform-origin: 32px 65px;
+    }
+    100% {
+        transform: rotate(26deg);
+        transform-origin: 32px 65px;
+    }
+}
+
+@keyframes robotLegWalkR {
+    0% {
+        transform: rotate(-24deg);
+        transform-origin: 52px 65px;
+    }
+    50% {
+        transform: rotate(26deg);
+        transform-origin: 52px 65px;
+    }
+    100% {
+        transform: rotate(-24deg);
+        transform-origin: 52px 65px;
+    }
+}
+
+@keyframes robotArmWalkL {
+    0% {
+        transform: rotate(-24deg);
+        transform-origin: 17px 39px;
+    }
+    50% {
+        transform: rotate(24deg);
+        transform-origin: 17px 39px;
+    }
+    100% {
+        transform: rotate(-24deg);
+        transform-origin: 17px 39px;
+    }
+}
+
+@keyframes robotArmWalkR {
+    0% {
+        transform: rotate(24deg);
+        transform-origin: 67px 39px;
+    }
+    50% {
+        transform: rotate(-24deg);
+        transform-origin: 67px 39px;
+    }
+    100% {
+        transform: rotate(24deg);
+        transform-origin: 67px 39px;
+    }
+}
+
+@keyframes robotArmWave {
+    0%, 100% {
+        transform: rotate(-15deg);
+        transform-origin: 17px 39px;
+    }
+    25% {
+        transform: rotate(-85deg);
+        transform-origin: 17px 39px;
+    }
+    50% {
+        transform: rotate(-55deg);
+        transform-origin: 17px 39px;
+    }
+    75% {
+        transform: rotate(-90deg);
+        transform-origin: 17px 39px;
+    }
+}
+
+@keyframes robotArmHappyRight {
+    0%, 100% {
+        transform: rotate(10deg);
+        transform-origin: 67px 39px;
+    }
+    50% {
+        transform: rotate(35deg);
+        transform-origin: 67px 39px;
+    }
+}
+
+@keyframes robotAntennaPulse {
+    0%, 100% {
+        transform: scale(0.9);
+        opacity: 0.8;
+    }
+    50% {
+        transform: scale(1.6);
+        opacity: 0;
+    }
+}
+
+@keyframes robotHeadTilt {
+    0%, 100% {
+        transform: rotate(0deg);
+        transform-origin: 42px 28px;
+    }
+    30% {
+        transform: rotate(-3.5deg);
+        transform-origin: 42px 28px;
+    }
+    70% {
+        transform: rotate(3.5deg);
+        transform-origin: 42px 28px;
+    }
+}
+
+@keyframes robotDangle {
+    0%, 100% {
+        transform: rotate(-4deg);
+        transform-origin: 42px 20px;
+    }
+    50% {
+        transform: rotate(4deg);
+        transform-origin: 42px 20px;
+    }
+}
+
+.robot-shadow {
+    transform-origin: center;
+    animation: robotShadowBounce 0.45s infinite ease-in-out;
+}
+
+.robot-walking-body {
+    animation: robotBodyWalk 0.22s infinite ease-in-out;
+}
+
+.robot-idle-body {
+    animation: robotBodyIdle 2.8s infinite ease-in-out;
+}
+
+.robot-leg-left-walk {
+    animation: robotLegWalkL 0.45s infinite ease-in-out;
+}
+
+.robot-leg-right-walk {
+    animation: robotLegWalkR 0.45s infinite ease-in-out;
+}
+
+.robot-arm-left-walk {
+    animation: robotArmWalkL 0.45s infinite ease-in-out;
+}
+
+.robot-arm-right-walk {
+    animation: robotArmWalkR 0.45s infinite ease-in-out;
+}
+
+.robot-arm-wave {
+    animation: robotArmWave 0.9s infinite ease-in-out;
+}
+
+.robot-arm-happy-right {
+    animation: robotArmHappyRight 1.5s infinite ease-in-out;
+}
+
+.robot-antenna-ring {
+    transform-origin: 42px 7px;
+    animation: robotAntennaPulse 1.8s infinite cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.robot-head-idle {
+    animation: robotHeadTilt 4s infinite ease-in-out;
+}
+
+.robot-dangle {
+    animation: robotDangle 1.2s infinite ease-in-out;
+}
+
+.robot-eye {
+    filter: drop-shadow(0 0 6px #00F0FF);
+    transition: all 0.15s ease;
+}

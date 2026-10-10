@@ -5,16 +5,14 @@ import {
   FiSend,
   FiKey,
   FiRefreshCw,
-  FiMove,
   FiCheck,
   FiExternalLink,
   FiEye,
   FiCopy,
-  FiZap,
-  FiMessageSquare,
   FiChevronDown
 } from 'react-icons/fi';
 import profileImg from '../assets/profile.png';
+import { CuteRobot } from './CuteRobot';
 import {
   ChatMessage,
   sendMessageToAI,
@@ -45,6 +43,19 @@ const SUGGESTED_PROMPTS = [
   { label: '📬 Contact / Hire', prompt: 'How can I contact or hire you?' },
 ];
 
+const ROBOT_PHRASES = [
+  "Hi! I'm Vinayaka's AI twin 👋",
+  "Ask me about ParcelPulse! 📦",
+  "I know Java 17 & Spring Boot ⚡",
+  "Check out CloudSentry! 🛡️",
+  "Want to view my resume? 📄",
+  "Click me to chat! 🤖",
+  "Ask me anything about my projects! 🚀",
+  "Founder of CodeWINtage 💼",
+  "AWS Certified Developer ☁️",
+  "Patrolling your screen! 🚶‍♂️",
+];
+
 export const AIChatbot: React.FC = () => {
   const navigate = useNavigate();
 
@@ -52,8 +63,15 @@ export const AIChatbot: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [coords, setCoords] = useState<Coords>({ x: -1, y: -1 });
   const [isDragging, setIsDragging] = useState(false);
-  const [showTooltip, setShowTooltip] = useState(true);
   const [copiedId, setCopiedId] = useState<string | null>(null);
+
+  // Walking Robot Roaming state
+  const [isWalking, setIsWalking] = useState(false);
+  const [walkDirection, setWalkDirection] = useState<'left' | 'right'>('left');
+  const [walkDuration, setWalkDuration] = useState(2.5);
+  const [isHovered, setIsHovered] = useState(false);
+  const [speechText, setSpeechText] = useState<string | null>("Hi! I'm Vinayaka's AI twin 🤖");
+  const [isRoaming] = useState(true);
 
   // Chat conversation state
   const [messages, setMessages] = useState<ChatMessage[]>([INITIAL_MESSAGE]);
@@ -81,11 +99,6 @@ export const AIChatbot: React.FC = () => {
   useEffect(() => {
     setActiveApiKey(getStoredApiKey());
 
-    // Auto-hide the initial "drag me" hint after 6 seconds
-    const tooltipTimer = setTimeout(() => {
-      setShowTooltip(false);
-    }, 6000);
-
     // Initial positioning
     const savedCoords = localStorage.getItem(STORAGE_COORDS_KEY);
     if (savedCoords) {
@@ -96,7 +109,7 @@ export const AIChatbot: React.FC = () => {
           const clampedX = Math.min(Math.max(16, parsed.x), window.innerWidth - 80);
           const clampedY = Math.min(Math.max(16, parsed.y), window.innerHeight - 80);
           setCoords({ x: clampedX, y: clampedY });
-          return () => clearTimeout(tooltipTimer);
+          return;
         }
       } catch (e) {
         // ignore JSON parse error
@@ -107,8 +120,6 @@ export const AIChatbot: React.FC = () => {
     const defaultX = Math.max(16, window.innerWidth - 88);
     const defaultY = Math.max(16, window.innerHeight - 92);
     setCoords({ x: defaultX, y: defaultY });
-
-    return () => clearTimeout(tooltipTimer);
   }, []);
 
   // Handle window resizing to keep icon on screen
@@ -125,6 +136,75 @@ export const AIChatbot: React.FC = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  // Autonomous wandering robot engine
+  useEffect(() => {
+    // Pause wandering if chat is open, dragging, hovered, or roaming disabled
+    if (isOpen || isDragging || !isRoaming || isHovered) {
+      setIsWalking(false);
+      return;
+    }
+
+    // Schedule next stroll after resting
+    const restTime = 3000 + Math.random() * 4500;
+    const walkTimer = setTimeout(() => {
+      if (isOpen || isDragging || isHovered || !isRoaming) return;
+
+      const screenW = typeof window !== 'undefined' ? window.innerWidth : 1200;
+      const minX = 24;
+      const maxX = Math.max(minX + 60, screenW - 110);
+
+      // Choose next target X
+      const curX = coords.x;
+      const stepDistance = 110 + Math.random() * 200;
+      let targetX: number;
+
+      if (curX > screenW - 180) {
+        // Walk left
+        targetX = Math.max(minX, curX - stepDistance);
+      } else if (curX < 140) {
+        // Walk right
+        targetX = Math.min(maxX, curX + stepDistance);
+      } else {
+        const goLeft = Math.random() > 0.5;
+        targetX = goLeft
+          ? Math.max(minX, curX - stepDistance)
+          : Math.min(maxX, curX + stepDistance);
+      }
+
+      const dist = Math.abs(targetX - curX);
+      if (dist < 30) return;
+
+      const durationSec = Math.max(1.4, Number((dist / 44).toFixed(2)));
+      setWalkDuration(durationSec);
+      setWalkDirection(targetX > curX ? 'right' : 'left');
+      setIsWalking(true);
+      setSpeechText(null);
+
+      // Stroll to target
+      setCoords((prev) => ({
+        ...prev,
+        x: targetX,
+      }));
+
+      // Arrival at destination
+      const arrivalTimer = setTimeout(() => {
+        setIsWalking(false);
+        const randomPhrase = ROBOT_PHRASES[Math.floor(Math.random() * ROBOT_PHRASES.length)];
+        setSpeechText(randomPhrase);
+
+        const speechTimer = setTimeout(() => {
+          setSpeechText((current) => (current === randomPhrase ? null : current));
+        }, 4000);
+
+        return () => clearTimeout(speechTimer);
+      }, durationSec * 1000);
+
+      return () => clearTimeout(arrivalTimer);
+    }, restTime);
+
+    return () => clearTimeout(walkTimer);
+  }, [coords.x, isOpen, isDragging, isRoaming, isHovered]);
+
   // Auto scroll chat to bottom when messages change
   useEffect(() => {
     if (isOpen) {
@@ -135,7 +215,7 @@ export const AIChatbot: React.FC = () => {
   // Mouse Drag Handlers
   const handleMouseDown = (e: React.MouseEvent) => {
     if (e.button !== 0) return; // Only primary mouse button
-    setShowTooltip(false);
+    setIsWalking(false);
     dragStartRef.current = {
       mouseX: e.clientX,
       mouseY: e.clientY,
@@ -186,7 +266,7 @@ export const AIChatbot: React.FC = () => {
   // Touch Drag Handlers (for mobile & touchscreens)
   const handleTouchStart = (e: React.TouchEvent) => {
     const touch = e.touches[0];
-    setShowTooltip(false);
+    setIsWalking(false);
     dragStartRef.current = {
       mouseX: touch.clientX,
       mouseY: touch.clientY,
@@ -426,7 +506,7 @@ export const AIChatbot: React.FC = () => {
   return (
     <>
       {/* =========================================================
-          MOVABLE / DRAGGABLE FLOATING BOT ICON
+          MOVABLE / DRAGGABLE FLOATING CUTE WALKING ROBOT
          ========================================================= */}
       <div
         ref={buttonRef}
@@ -436,75 +516,26 @@ export const AIChatbot: React.FC = () => {
           top: `${coords.y}px`,
           zIndex: 9999,
           touchAction: 'none',
+          transition: isDragging
+            ? 'none'
+            : isWalking
+            ? `left ${walkDuration}s linear, top 0.25s ease-out`
+            : 'left 0.35s ease-out, top 0.25s ease-out',
         }}
         onMouseDown={handleMouseDown}
         onTouchStart={handleTouchStart}
-        className={`group select-none ${
-          isDragging ? 'cursor-grabbing scale-105' : 'cursor-grab hover:scale-105'
-        } transition-transform duration-150`}
-        title="Vinayaka AI Clone • Drag anywhere or click to chat!"
+        className="select-none"
       >
-        {/* Animated outer glow & ring */}
-        <div className="relative">
-          <div
-            className={`w-16 h-16 rounded-full bg-gradient-to-tr from-g-blue via-g-blue to-blue-500 shadow-goog-3 flex items-center justify-center p-0.5 ${
-              !isOpen ? 'chatbot-pulse' : ''
-            }`}
-          >
-            {/* Inner avatar container */}
-            <div className="w-full h-full rounded-full bg-white flex items-center justify-center overflow-hidden relative shadow-inner">
-              <img
-                src={profileImg}
-                alt="Vinayaka AI"
-                className="w-full h-full object-cover pointer-events-none"
-                onError={(e) => {
-                  // Fallback if image fails
-                  e.currentTarget.style.display = 'none';
-                }}
-              />
-
-              {/* Bot icon overlay on hover or if open */}
-              <div
-                className={`absolute inset-0 bg-g-blue/80 backdrop-blur-[1px] flex items-center justify-center transition-opacity duration-200 ${
-                  isOpen ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'
-                }`}
-              >
-                {isOpen ? (
-                  <FiX size={26} className="text-white animate-spin-once" />
-                ) : (
-                  <FiMessageSquare size={24} className="text-white" />
-                )}
-              </div>
-            </div>
-          </div>
-
-          {/* Draggable grip indicator badge */}
-          <div
-            className="absolute -top-1 -right-1 w-6 h-6 rounded-full bg-white border border-outline shadow-sm flex items-center justify-center text-text-secondary group-hover:text-g-blue group-hover:border-g-blue transition-colors"
-            title="Draggable icon"
-          >
-            <FiMove size={12} />
-          </div>
-
-          {/* Online status indicator */}
-          <div
-            className="absolute -bottom-0.5 -left-0.5 w-4 h-4 rounded-full bg-g-green border-2 border-white shadow-sm"
-            title="Vinayaka AI is Online"
-          >
-            <span className="absolute inset-0 rounded-full bg-g-green animate-ping opacity-75"></span>
-          </div>
-
-          {/* "Drag me" Initial Helper Tooltip */}
-          {showTooltip && !isOpen && (
-            <div className="absolute right-0 bottom-full mb-3 pointer-events-none animate-bounce">
-              <div className="bg-text-primary text-white text-xs font-medium py-1.5 px-3 rounded-full shadow-lg whitespace-nowrap flex items-center gap-1.5">
-                <FiZap className="text-g-yellow" size={13} />
-                <span>Chat with Vinayaka AI • Drag me!</span>
-              </div>
-              <div className="w-2.5 h-2.5 bg-text-primary rotate-45 mx-auto -mt-1 mr-6"></div>
-            </div>
-          )}
-        </div>
+        <CuteRobot
+          isOpen={isOpen}
+          isWalking={isWalking}
+          direction={walkDirection}
+          isDragging={isDragging}
+          speechText={speechText}
+          onToggleChat={() => setIsOpen((prev) => !prev)}
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+        />
       </div>
 
       {/* =========================================================

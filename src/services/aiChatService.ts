@@ -16,8 +16,8 @@ const STORAGE_KEY_API_PROVIDER = 'vinayaka_ai_provider';
 export const getStoredApiKey = (): string => {
   if (typeof window === 'undefined') return '';
   const stored = localStorage.getItem(STORAGE_KEY_API_KEY);
-  if (stored) return stored;
-  // Also check vite environment variables
+  if (stored && stored.trim()) return stored.trim();
+  // Check vite environment variables (e.g. from .env or deployment hosting)
   return (import.meta.env.VITE_GEMINI_API_KEY || import.meta.env.VITE_AI_API_KEY || '') as string;
 };
 
@@ -332,24 +332,7 @@ export const callGeminiApi = async (
   history: ChatMessage[],
   newMessage: string
 ): Promise<string> => {
-  const contents = [
-    {
-      role: 'user',
-      parts: [
-        {
-          text: `[SYSTEM INSTRUCTION: ${VINAYAKA_SYSTEM_PROMPT}]\n\nUser: Hi! Introduce yourself briefly as Vinayaka.`
-        }
-      ]
-    },
-    {
-      role: 'model',
-      parts: [
-        {
-          text: `Hi! I'm K S Vinayaka (Vikram), an AWS Certified Java Developer and Full Stack Engineer based in Bengaluru. How can I help you today?`
-        }
-      ]
-    }
-  ];
+  const contents: { role: 'user' | 'model'; parts: { text: string }[] }[] = [];
 
   // Append recent conversation history (last 8 messages for context)
   const recentHistory = history.slice(-8);
@@ -367,8 +350,8 @@ export const callGeminiApi = async (
     parts: [{ text: newMessage }]
   });
 
-  // Try Gemini 1.5 Flash (fast & reliable) with fallback to gemini-2.0-flash / gemini-pro
-  const models = ['gemini-1.5-flash', 'gemini-1.5-pro', 'gemini-2.0-flash'];
+  // Try current generation Gemini models with fallback
+  const models = ['gemini-3.8-flash', 'gemini-flash-latest', 'gemini-3.5-flash'];
   let lastError: Error | null = null;
 
   for (const model of models) {
@@ -381,6 +364,9 @@ export const callGeminiApi = async (
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
+          system_instruction: {
+            parts: [{ text: VINAYAKA_SYSTEM_PROMPT }]
+          },
           contents,
           generationConfig: {
             temperature: 0.7,

@@ -599,7 +599,7 @@ export const AIChatbot: React.FC = () => {
               <div className="flex gap-2">
                 <input
                   type="password"
-                  placeholder="Paste Gemini API Key (AIzaSy...)"
+                  placeholder="Paste Gemini API Key (AQ... or AIzaSy...)"
                   value={keyInput}
                   onChange={(e) => setKeyInput(e.target.value)}
                   className="flex-1 px-3 py-1.5 bg-white border border-outline rounded-lg text-xs focus:outline-none focus:border-g-blue"
@@ -764,7 +764,7 @@ export const AIChatbot: React.FC = () => {
           <div className="px-3 py-1 bg-surface-alt border-t border-outline text-[10px] text-text-secondary flex items-center justify-between">
             <span className="flex items-center gap-1">
               <span className="w-1.5 h-1.5 rounded-full bg-g-green"></span>
-              {activeApiKey ? 'Gemini 1.5 Active' : 'Persona Knowledge Engine'}
+              {activeApiKey ? 'Gemini AI Active' : 'Persona Knowledge Engine'}
             </span>
             <button
               onClick={() => setShowKeyModal(true)}

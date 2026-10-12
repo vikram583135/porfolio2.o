@@ -566,8 +566,8 @@ export const AIChatbot: React.FC = () => {
                   <img
                     src={profileImg}
                     alt="Vinayaka AI"
-                  className="w-10 h-10 rounded-full object-cover border-2 border-white shadow-sm"
-                />
+                    className="w-10 h-10 rounded-full object-cover object-center border-2 border-white shadow-sm"
+                  />
                 <span className="absolute bottom-0 right-0 w-3 h-3 bg-g-green border-2 border-white rounded-full"></span>
               </div>
               <div className="min-w-0">
@@ -688,7 +688,7 @@ export const AIChatbot: React.FC = () => {
                       <img
                         src={profileImg}
                         alt="Bot"
-                        className="w-6 h-6 rounded-full object-cover flex-shrink-0 mb-1 border border-outline"
+                        className="w-6 h-6 rounded-full object-cover object-center flex-shrink-0 mb-1 border border-outline"
                       />
                     )}
                     <div
@@ -743,7 +743,7 @@ export const AIChatbot: React.FC = () => {
                 <img
                   src={profileImg}
                   alt="Vinayaka AI"
-                  className="w-6 h-6 rounded-full object-cover flex-shrink-0 mb-1 border border-outline"
+                  className="w-6 h-6 rounded-full object-cover object-center flex-shrink-0 mb-1 border border-outline"
                 />
                 <div className="chat-bubble-bot p-3 flex items-center gap-2">
                   <div className="google-dots">

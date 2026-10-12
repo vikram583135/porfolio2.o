@@ -1,8 +1,9 @@
 import { getSummary, getSkills, getEducation, getCertifications, getExperience } from '../data/portfolioData';
-import { FiAward, FiBookOpen, FiCode, FiDownload, FiEye, FiBriefcase } from 'react-icons/fi';
+import { FiAward, FiBookOpen, FiCode, FiDownload, FiEye, FiBriefcase, FiExternalLink } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 import SectionHeader from '../components/SectionHeader';
 import resumePdf from '../assets/resume.pdf';
+import profileImage from '../assets/profile.png';
 
 const AboutPage = () => {
     const summary = getSummary();
@@ -79,15 +80,29 @@ const AboutPage = () => {
                     </a>
                 </div>
 
-                {/* Summary Section */}
-                <section className="card-rainbow p-8 animate-fadeIn">
-                    <div className="flex items-start gap-4">
-                        <div className="w-12 h-12 bg-g-blue rounded-goog flex items-center justify-center text-white flex-shrink-0">
-                            <FiCode size={24} />
+                {/* Summary Section with Framed Profile Photo */}
+                <section className="card-rainbow p-6 sm:p-8 animate-fadeIn">
+                    <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6">
+                        <div className="relative flex-shrink-0">
+                            <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-white shadow-goog-3 p-1 relative z-10 overflow-hidden">
+                                <div className="absolute inset-0 rounded-full bg-gradient-to-br from-g-blue via-g-green via-g-yellow to-g-red p-0.5">
+                                    <div className="w-full h-full bg-white rounded-full"></div>
+                                </div>
+                                <img
+                                    src={profileImage}
+                                    alt="K S Vinayaka"
+                                    className="relative z-10 w-full h-full object-cover object-center rounded-full"
+                                />
+                            </div>
                         </div>
-                        <div>
-                            <h2 className="text-xl font-bold text-text-primary mb-2">Professional Summary</h2>
-                            <div className="w-16 h-1 mb-4 divider-blue"></div>
+                        <div className="text-center sm:text-left flex-1">
+                            <div className="flex items-center justify-center sm:justify-start gap-3 mb-2">
+                                <h2 className="text-xl font-bold text-text-primary">Professional Summary</h2>
+                                <span className="hidden sm:inline-block px-2.5 py-0.5 bg-g-blue/10 text-g-blue font-semibold text-xs rounded-full">
+                                    Java & Cloud
+                                </span>
+                            </div>
+                            <div className="w-16 h-1 mb-4 divider-blue mx-auto sm:mx-0"></div>
                             <p className="text-text-secondary leading-relaxed">
                                 {summary}
                             </p>
@@ -113,9 +128,22 @@ const AboutPage = () => {
                                 <div key={idx} className="card-blue p-6 md:p-8 space-y-4">
                                     <div className="flex flex-wrap items-center justify-between gap-2">
                                         <div>
-                                            <h3 className="text-xl font-bold text-text-primary">
-                                                {exp.role} <span className="text-text-secondary font-normal">|</span> {exp.company}
-                                            </h3>
+                                            <div className="flex items-center gap-2.5">
+                                                <h3 className="text-xl font-bold text-text-primary">
+                                                    {exp.role} <span className="text-text-secondary font-normal">|</span> {exp.company}
+                                                </h3>
+                                                {exp.live && (
+                                                    <a
+                                                        href={exp.live}
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
+                                                        className="px-2.5 py-0.5 bg-g-green text-white text-xs font-semibold rounded-goog hover:bg-g-green-dark transition-colors inline-flex items-center gap-1 shadow-sm"
+                                                    >
+                                                        <span>Live</span>
+                                                        <FiExternalLink size={11} />
+                                                    </a>
+                                                )}
+                                            </div>
                                             <p className="text-sm text-text-secondary mt-0.5">{exp.location}</p>
                                         </div>
                                         <span className="px-4 py-1.5 tag-blue rounded-full text-xs font-semibold">

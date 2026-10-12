@@ -282,7 +282,7 @@ const ResumePage = () => {
                             <div className="p-4 bg-surface border-t border-outline flex flex-wrap items-center justify-between gap-3 text-sm">
                                 <div className="text-text-secondary flex items-center gap-2">
                                     <FiCheckCircle className="text-g-green" />
-                                    <span>Verified PDF Document • Updated for 2025</span>
+                                    <span>Verified PDF Document • Updated October 2026</span>
                                 </div>
                                 <div className="flex items-center gap-3">
                                     <a
@@ -395,9 +395,22 @@ const ResumePage = () => {
                                 {experience.map((exp, idx) => (
                                     <div key={idx} className="card-elevated p-6 border-l-4 border-g-green">
                                         <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
-                                            <h3 className="text-lg font-bold text-text-primary">
-                                                {exp.role} <span className="text-text-secondary font-normal">|</span> {exp.company}
-                                            </h3>
+                                            <div className="flex items-center gap-2.5">
+                                                <h3 className="text-lg font-bold text-text-primary">
+                                                    {exp.role} <span className="text-text-secondary font-normal">|</span> {exp.company}
+                                                </h3>
+                                                {exp.live && (
+                                                    <a
+                                                        href={exp.live}
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
+                                                        className="px-2.5 py-0.5 bg-g-green text-white text-xs font-semibold rounded-goog hover:bg-g-green-dark transition-colors inline-flex items-center gap-1 shadow-sm"
+                                                    >
+                                                        <span>Live</span>
+                                                        <FiExternalLink size={11} />
+                                                    </a>
+                                                )}
+                                            </div>
                                             <span className="text-xs font-semibold px-3 py-1 bg-g-green/10 text-g-green rounded-goog-full">
                                                 {exp.location}
                                             </span>
@@ -638,7 +651,7 @@ const ResumePage = () => {
                     download="KS_Vinayaka_Resume.pdf"
                     className="btn-blue flex-1 py-2.5 px-3 text-xs font-semibold flex items-center justify-center gap-1.5 shadow-sm text-center"
                 >
-                    <FiDownload size={14} /> <span>Download PDF (17 KB)</span>
+                    <FiDownload size={14} /> <span>Download PDF (18 KB)</span>
                 </a>
                 <a
                     href={resumePdf}

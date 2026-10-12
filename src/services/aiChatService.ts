@@ -57,7 +57,7 @@ Key Identity & Personality:
 - LinkedIn: https://www.linkedin.com/in/k-s-vinayaka-8793a7225/
 
 Professional Background & Experience:
-- Founder & Full-Stack Developer at CodeWINtage Software Consultancy (Bengaluru):
+- Founder & Full-Stack Developer at CodeWINtage Software Consultancy (Bengaluru) [Live: https://code-vantage-site.vercel.app/]:
   - Delivered 6 client projects end-to-end (requirements, architecture, full-stack development, cloud deployment, documentation, and support).
   - Maintained 100% client satisfaction with repeat referrals.
 - Education:
@@ -218,10 +218,10 @@ export const generateOfflineResponse = (query: string): string => {
     q.includes('founder')
   ) {
     return (
-      `I am the **Founder & Lead Developer at CodeWINtage Software Consultancy** based in Bengaluru! 💼\n\n` +
+      `I am the **Founder & Lead Developer at [CodeWINtage Software Consultancy](https://code-vantage-site.vercel.app/)** based in Bengaluru! 💼\n\n` +
       `• Delivered **6 client projects end-to-end** covering requirements gathering, system architecture, development, automated deployment, and client support.\n` +
       `• Maintained **100% client satisfaction** resulting in repeat engagements and referrals.\n` +
-      `• Architected scalable Spring Boot microservices, modern React interfaces, and managed AWS infrastructure.\n\n` +
+      `• Check out the live consultancy portfolio at **[code-vantage-site.vercel.app](https://code-vantage-site.vercel.app/)**!\n\n` +
       `I combine entrepreneurial ownership with solid backend craftsmanship!`
     );
   }

@@ -112,7 +112,7 @@ const HomePage = () => {
                                 <img
                                     src={profileImage}
                                     alt={personal.name}
-                                    className="relative z-10 w-full h-full object-cover rounded-full"
+                                    className="relative z-10 w-full h-full object-cover object-center rounded-full"
                                 />
                             </div>
 

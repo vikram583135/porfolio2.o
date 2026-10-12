@@ -14,6 +14,7 @@
       "role": "Founder",
       "company": "CodeWINtage Software Consultancy",
       "location": "Bengaluru, India",
+      "live": "https://code-vantage-site.vercel.app/",
       "highlights": [
         "Founded and operated consultancy delivering customized software solutions for clients",
         "Delivered 6 client projects end-to-end: requirements, development, documentation, deployment, support",
@@ -185,7 +186,7 @@
   },
   "notes": {
     "data_sources": {
-      "resume_pdf": "KS_Vinayaka_Resume_oct26 (1).pdf",
+      "resume_pdf": "KS_Vinayaka_Resume_oct26 (2).pdf",
       "github_user": "https://github.com/vikram583135"
     }
   }

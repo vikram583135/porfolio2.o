@@ -22,7 +22,7 @@ const Hero = () => {
         <img
           src={myprofilephoto}
           alt="K S Vinayaka"
-          className="max-w-xs md:max-w-sm rounded-lg mix-blend-luminosity opacity-80"
+          className="max-w-xs md:max-w-sm rounded-2xl shadow-goog-3 object-cover object-center"
         />
       </div>
     </div>

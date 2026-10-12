@@ -49,6 +49,7 @@ export interface Experience {
     company: string;
     location: string;
     highlights: string[];
+    live?: string;
 }
 
 export interface Achievement {

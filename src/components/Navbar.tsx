@@ -135,7 +135,7 @@ const Navbar = () => {
                 onClick={() => setIsOpen(false)}
               >
                 <FiDownload size={18} />
-                <span>Download PDF Resume (17 KB)</span>
+                <span>Download PDF Resume (18 KB)</span>
               </a>
             </div>
           </div>

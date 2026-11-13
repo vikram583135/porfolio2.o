@@ -52,6 +52,7 @@ const ROBOT_PHRASES = [
   "Click me to chat! 🤖",
   "Ask me anything about my projects! 🚀",
   "Founder of CodeWINtage 💼",
+  "Datacom Job Simulation 🎬",
   "AWS Certified Developer ☁️",
   "Patrolling your screen! 🚶‍♂️",
 ];

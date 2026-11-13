@@ -57,6 +57,13 @@ Key Identity & Personality:
 - LinkedIn: https://www.linkedin.com/in/k-s-vinayaka-8793a7225/
 
 Professional Background & Experience:
+- Software Development Job Simulation at Datacom (via Forage) [Virtual Job Simulation · Oct – Nov 2026]:
+  - Reviewed a React/Material-UI cinema-finder app and root-caused 5 core bugs across maps, geolocation, and navigation.
+  - Fixed snap-to-cinema navigation (lat/lng coordinate order in MapLibre) and fixed blank Leaflet tiles using OpenStreetMap.
+  - Built geolocation fallback (postcode/suburb/city search, Turf.js distance computations) and constrained map panning to AU & NZ.
+  - Documented root causes, fixes, and verification steps in a CHANGES.md post-mortem write-up.
+  - GitHub Repo: https://github.com/vikram583135/datacom_job_simulation
+  - Verified Certificate of Completion (Issued Nov 12, 2026).
 - Founder & Full-Stack Developer at CodeWINtage Software Consultancy (Bengaluru) [Live: https://code-vantage-site.vercel.app/]:
   - Delivered 6 client projects end-to-end (requirements, architecture, full-stack development, cloud deployment, documentation, and support).
   - Maintained 100% client satisfaction with repeat referrals.
@@ -65,6 +72,7 @@ Professional Background & Experience:
   - BCA (Bachelor of Computer Applications) from VSK University (2021-2023)
 - Certifications:
   - AWS Certified Cloud Practitioner (CLF-C02) - Amazon Web Services
+  - Software Development Job Simulation (Certificate of Completion) - Datacom (via Forage), Nov 2026
 - Awards & Leadership:
   - Runner-Up, BITOTSAV Coding Competition (Shri Medha College, Ballari)
   - Lead Organizer & Coordinator, TECHIZEN-2K25 Hackathon (Bangalore University)
@@ -207,7 +215,23 @@ export const generateOfflineResponse = (query: string): string => {
     );
   }
 
-  // 7. Experience / Consultancy / CodeWINtage
+  // 7. Experience / Datacom / Consultancy / CodeWINtage
+  if (
+    q.includes('datacom') ||
+    q.includes('cinema') ||
+    q.includes('simulation') ||
+    q.includes('forage')
+  ) {
+    return (
+      `During the **Datacom Software Development Job Simulation (via Forage)**, I tackled an enterprise React & Material-UI Cinema Finder application: 🎬🗺️\n\n` +
+      `• **Root-caused 5 core bugs** spanning map navigation, tile rendering, geolocation fallback, bounds clamping, and UI labelling.\n` +
+      `• Fixed **MapLibre center coordinate inversion** ([lng, lat] vs [lat, lng]) and revived the blank Leaflet map with OpenStreetMap tiles.\n` +
+      `• Engineered an **offline search fallback** using \`@turf/distance\` for postcode/city proximity and bounded global panning strictly to Australia & New Zealand.\n` +
+      `• Fully documented root causes, code fixes, and verification steps in a CHANGES.md post-mortem.\n\n` +
+      `🔗 **[GitHub Solution Repo](https://github.com/vikram583135/datacom_job_simulation)** | 📜 **[View Certificate PDF](/datacom_certificate.pdf)**`
+    );
+  }
+
   if (
     q.includes('experience') ||
     q.includes('work') ||
@@ -218,11 +242,14 @@ export const generateOfflineResponse = (query: string): string => {
     q.includes('founder')
   ) {
     return (
-      `I am the **Founder & Lead Developer at [CodeWINtage Software Consultancy](https://code-vantage-site.vercel.app/)** based in Bengaluru! 💼\n\n` +
-      `• Delivered **6 client projects end-to-end** covering requirements gathering, system architecture, development, automated deployment, and client support.\n` +
-      `• Maintained **100% client satisfaction** resulting in repeat engagements and referrals.\n` +
-      `• Check out the live consultancy portfolio at **[code-vantage-site.vercel.app](https://code-vantage-site.vercel.app/)**!\n\n` +
-      `I combine entrepreneurial ownership with solid backend craftsmanship!`
+      `Here is an overview of my professional experience: 💼\n\n` +
+      `1. **Software Development Job Simulation — Datacom (via Forage)** *(Oct–Nov 2026)*:\n` +
+      `   • Diagnosed & resolved 5 critical bugs in a React/Material-UI Cinema Finder app (MapLibre, Leaflet, Turf.js geolocation fallback, and AU/NZ map boundaries).\n` +
+      `   • [GitHub Solution](https://github.com/vikram583135/datacom_job_simulation) • [Certificate of Completion](/datacom_certificate.pdf)\n\n` +
+      `2. **Founder & Lead Developer — [CodeWINtage Software Consultancy](https://code-vantage-site.vercel.app/)** *(Bengaluru)*:\n` +
+      `   • Delivered **6 client projects end-to-end** covering requirements, architecture, full-stack development, and cloud deployment.\n` +
+      `   • Achieved **100% client satisfaction** with repeat referrals.\n\n` +
+      `I combine entrepreneurial ownership with solid backend and full-stack craftsmanship!`
     );
   }
 
@@ -239,6 +266,7 @@ export const generateOfflineResponse = (query: string): string => {
     return (
       `Here are my academic qualifications and certifications: 🎓\n\n` +
       `• **AWS Certified Cloud Practitioner (CLF-C02)** — Amazon Web Services\n` +
+      `• **Software Development Job Simulation (Certificate of Completion)** — Datacom (via Forage), Nov 2026 ([View PDF](/datacom_certificate.pdf))\n` +
       `• **Master of Computer Applications (MCA)** — Bangalore University (2024–2025)\n` +
       `• **Bachelor of Computer Applications (BCA)** — VSK University (2021–2023)\n\n` +
       `I was also Runner-Up at the **BITOTSAV Coding Competition** and served as Lead Coordinator for the **TECHIZEN-2K25 Hackathon** at Bangalore University!`

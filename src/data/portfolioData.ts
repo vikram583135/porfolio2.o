@@ -48,8 +48,12 @@ export interface Experience {
     role: string;
     company: string;
     location: string;
+    period?: string;
+    tech_stack?: string[];
     highlights: string[];
     live?: string;
+    github?: string;
+    certificate?: string;
 }
 
 export interface Achievement {

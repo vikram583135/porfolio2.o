@@ -20,6 +20,29 @@
         "Delivered 6 client projects end-to-end: requirements, development, documentation, deployment, support",
         "Achieved 100% client satisfaction with repeat referrals through quality delivery"
       ]
+    },
+    {
+      "role": "Software Development Job Simulation",
+      "company": "Datacom (via Forage)",
+      "location": "Virtual Job Simulation",
+      "period": "Oct – Nov 2026",
+      "github": "https://github.com/vikram583135/datacom_job_simulation",
+      "certificate": "/datacom_certificate.pdf",
+      "tech_stack": [
+        "React 18",
+        "Material-UI",
+        "MapLibre GL",
+        "Leaflet",
+        "Turf.js",
+        "React Context",
+        "React Router"
+      ],
+      "highlights": [
+        "Reviewed a React/Material-UI cinema-finder app and root-caused 5 bugs across maps, geolocation, and navigation",
+        "Fixed snap-to-cinema navigation (lat/lng order bug in MapLibre) and the blank Leaflet map (swapped in OpenStreetMap tiles)",
+        "Built a geolocation fallback (postcode/suburb/city search, Turf.js distances) and constrained map panning to AU & NZ",
+        "Documented every root cause, fix, and verification step in a CHANGES.md write-up"
+      ]
     }
   ],
   "achievements": [
@@ -75,7 +98,8 @@
     }
   ],
   "certifications": [
-    "AWS Certified Cloud Practitioner (CLF-C02) | Amazon Web Services"
+    "AWS Certified Cloud Practitioner (CLF-C02) | Amazon Web Services",
+    "Software Development Job Simulation (Certificate of Completion) | Datacom (via Forage), Nov 2026"
   ],
   "projects": [
     {
@@ -186,7 +210,7 @@
   },
   "notes": {
     "data_sources": {
-      "resume_pdf": "KS_Vinayaka_Resume_oct26 (2).pdf",
+      "resume_pdf": "KS_Vinayaka_Resume_Nov26.pdf",
       "github_user": "https://github.com/vikram583135"
     }
   }

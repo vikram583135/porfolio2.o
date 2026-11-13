@@ -110,8 +110,8 @@ const ResumePage = () => {
                                 <FiAward size={20} />
                             </div>
                             <div>
-                                <p className="text-xs text-text-secondary font-medium">Certification</p>
-                                <p className="text-sm font-bold text-text-primary">AWS (CLF-C02)</p>
+                                <p className="text-xs text-text-secondary font-medium">Certifications</p>
+                                <p className="text-sm font-bold text-text-primary">AWS • Datacom</p>
                             </div>
                         </div>
                     </div>
@@ -393,28 +393,66 @@ const ResumePage = () => {
                                 </h2>
 
                                 {experience.map((exp, idx) => (
-                                    <div key={idx} className="card-elevated p-6 border-l-4 border-g-green">
-                                        <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
-                                            <div className="flex items-center gap-2.5">
-                                                <h3 className="text-lg font-bold text-text-primary">
-                                                    {exp.role} <span className="text-text-secondary font-normal">|</span> {exp.company}
-                                                </h3>
-                                                {exp.live && (
-                                                    <a
-                                                        href={exp.live}
-                                                        target="_blank"
-                                                        rel="noopener noreferrer"
-                                                        className="px-2.5 py-0.5 bg-g-green text-white text-xs font-semibold rounded-goog hover:bg-g-green-dark transition-colors inline-flex items-center gap-1 shadow-sm"
-                                                    >
-                                                        <span>Live</span>
-                                                        <FiExternalLink size={11} />
-                                                    </a>
-                                                )}
+                                    <div key={idx} className="card-elevated p-6 border-l-4 border-g-green space-y-3">
+                                        <div className="flex flex-wrap items-center justify-between gap-2">
+                                            <div>
+                                                <div className="flex flex-wrap items-center gap-2.5">
+                                                    <h3 className="text-lg font-bold text-text-primary">
+                                                        {exp.role} <span className="text-text-secondary font-normal">|</span> {exp.company}
+                                                    </h3>
+                                                    {exp.live && (
+                                                        <a
+                                                            href={exp.live}
+                                                            target="_blank"
+                                                            rel="noopener noreferrer"
+                                                            className="px-2.5 py-0.5 bg-g-green text-white text-xs font-semibold rounded-goog hover:bg-g-green-dark transition-colors inline-flex items-center gap-1 shadow-sm"
+                                                        >
+                                                            <span>Live</span>
+                                                            <FiExternalLink size={11} />
+                                                        </a>
+                                                    )}
+                                                    {exp.github && (
+                                                        <a
+                                                            href={exp.github}
+                                                            target="_blank"
+                                                            rel="noopener noreferrer"
+                                                            className="px-2.5 py-0.5 bg-slate-800 text-white text-xs font-semibold rounded-goog hover:bg-black transition-colors inline-flex items-center gap-1 shadow-sm"
+                                                        >
+                                                            <FiGithub size={11} />
+                                                            <span>GitHub</span>
+                                                        </a>
+                                                    )}
+                                                    {exp.certificate && (
+                                                        <a
+                                                            href={exp.certificate}
+                                                            target="_blank"
+                                                            rel="noopener noreferrer"
+                                                            className="px-2.5 py-0.5 bg-g-blue text-white text-xs font-semibold rounded-goog hover:bg-g-blue-dark transition-colors inline-flex items-center gap-1 shadow-sm"
+                                                        >
+                                                            <FiAward size={11} />
+                                                            <span>Certificate</span>
+                                                        </a>
+                                                    )}
+                                                </div>
+                                                <p className="text-xs text-text-secondary mt-0.5">
+                                                    {exp.location} {exp.period && <span className="font-semibold text-g-blue">• {exp.period}</span>}
+                                                </p>
                                             </div>
                                             <span className="text-xs font-semibold px-3 py-1 bg-g-green/10 text-g-green rounded-goog-full">
-                                                {exp.location}
+                                                {exp.company.includes('Datacom') ? 'Virtual Job Simulation' : 'Consultancy & Client Solutions'}
                                             </span>
                                         </div>
+
+                                        {exp.tech_stack && exp.tech_stack.length > 0 && (
+                                            <div className="flex flex-wrap gap-1.5 pt-1">
+                                                {exp.tech_stack.map((t, tIdx) => (
+                                                    <span key={tIdx} className="text-xs px-2.5 py-0.5 rounded-goog bg-surface-alt border border-outline text-text-secondary font-medium">
+                                                        {t}
+                                                    </span>
+                                                ))}
+                                            </div>
+                                        )}
+
                                         <ul className="mt-3 space-y-2 text-sm text-text-secondary list-disc list-inside">
                                             {exp.highlights.map((point, pIdx) => (
                                                 <li key={pIdx} className="leading-relaxed">
@@ -597,16 +635,51 @@ const ResumePage = () => {
                                         Certifications
                                     </h2>
                                     <div className="space-y-3">
-                                        {certifications.map((cert, cIdx) => (
-                                            <div key={cIdx} className="p-4 card-red flex items-center gap-3">
-                                                <div className="p-2 bg-g-red/10 text-g-red rounded-full flex-shrink-0">
-                                                    <FiAward size={18} />
+                                        {certifications.map((cert, cIdx) => {
+                                            const isDatacom = cert.includes('Datacom');
+                                            return (
+                                                <div key={cIdx} className="p-4 card-red flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                                                    <div className="flex items-center gap-3">
+                                                        <div className="p-2 bg-g-red/10 text-g-red rounded-full flex-shrink-0">
+                                                            <FiAward size={18} />
+                                                        </div>
+                                                        <div>
+                                                            <p className="text-sm font-bold text-text-primary">
+                                                                {cert}
+                                                            </p>
+                                                            <p className="text-xs text-text-secondary">
+                                                                {isDatacom
+                                                                    ? 'Verified Credential • Forage & Datacom Job Simulation'
+                                                                    : 'Amazon Web Services • Cloud Architecture'}
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                    {isDatacom && (
+                                                        <div className="flex items-center gap-2 pl-9 sm:pl-0">
+                                                            <a
+                                                                href="/datacom_certificate.pdf"
+                                                                target="_blank"
+                                                                rel="noopener noreferrer"
+                                                                className="text-xs font-semibold text-g-blue hover:underline inline-flex items-center gap-1"
+                                                            >
+                                                                <span>Certificate PDF</span>
+                                                                <FiExternalLink size={12} />
+                                                            </a>
+                                                            <span className="text-text-secondary text-xs">•</span>
+                                                            <a
+                                                                href="https://github.com/vikram583135/datacom_job_simulation"
+                                                                target="_blank"
+                                                                rel="noopener noreferrer"
+                                                                className="text-xs font-semibold text-text-secondary hover:text-text-primary inline-flex items-center gap-1"
+                                                            >
+                                                                <FiGithub size={12} />
+                                                                <span>GitHub</span>
+                                                            </a>
+                                                        </div>
+                                                    )}
                                                 </div>
-                                                <p className="text-sm font-bold text-text-primary">
-                                                    {cert}
-                                                </p>
-                                            </div>
-                                        ))}
+                                            );
+                                        })}
                                     </div>
                                 </section>
                             </div>
@@ -651,7 +724,7 @@ const ResumePage = () => {
                     download="KS_Vinayaka_Resume.pdf"
                     className="btn-blue flex-1 py-2.5 px-3 text-xs font-semibold flex items-center justify-center gap-1.5 shadow-sm text-center"
                 >
-                    <FiDownload size={14} /> <span>Download PDF (18 KB)</span>
+                    <FiDownload size={14} /> <span>Download PDF (13 KB)</span>
                 </a>
                 <a
                     href={resumePdf}
